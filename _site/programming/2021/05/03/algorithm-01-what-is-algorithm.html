@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Algorithm 1. 알고리즘이란? 공부해야하는 이유 | Danalog</title>
+<meta name="generator" content="Jekyll v4.2.2">
+<meta property="og:title" content="Algorithm 1. 알고리즘이란? 공부해야하는 이유">
+<meta name="author" content="danahkim">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="0. 들어가며 Python을 이용한 알고리즘과 자료구조에 대해 공부한 내용을 바탕으로 간단히 포스팅할 계획입니다. 스파르타 코딩클럽의 알고보면 알기쉬운 알고리즘 강의를 수강하고 강의안을 참고하여 정리하였습니다.">
+<meta property="og:description" content="0. 들어가며 Python을 이용한 알고리즘과 자료구조에 대해 공부한 내용을 바탕으로 간단히 포스팅할 계획입니다. 스파르타 코딩클럽의 알고보면 알기쉬운 알고리즘 강의를 수강하고 강의안을 참고하여 정리하였습니다.">
+<link rel="canonical" href="http://localhost:4000/programming/2021/05/03/algorithm-01-what-is-algorithm.html">
+<meta property="og:url" content="http://localhost:4000/programming/2021/05/03/algorithm-01-what-is-algorithm.html">
+<meta property="og:site_name" content="Danalog">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2021-05-03T00:00:00+09:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Algorithm 1. 알고리즘이란? 공부해야하는 이유">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"danahkim"},"dateModified":"2021-05-03T00:00:00+09:00","datePublished":"2021-05-03T00:00:00+09:00","description":"0. 들어가며 Python을 이용한 알고리즘과 자료구조에 대해 공부한 내용을 바탕으로 간단히 포스팅할 계획입니다. 스파르타 코딩클럽의 알고보면 알기쉬운 알고리즘 강의를 수강하고 강의안을 참고하여 정리하였습니다.","headline":"Algorithm 1. 알고리즘이란? 공부해야하는 이유","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/programming/2021/05/03/algorithm-01-what-is-algorithm.html"},"url":"http://localhost:4000/programming/2021/05/03/algorithm-01-what-is-algorithm.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Danalog">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/">
+  <img class="site-favicon" title="Danalog" src="" onerror="this.style.display='none'">
+  Danalog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/about.html">ABOUT</a><a class="page-link" href="/categories.html">CATEGORIES</a><a class="page-link" href="/tags.html">TAGS</a><a class="page-link" href="/archives.html">ARCHIVES</a>
+
+
+
+
+
+
+
+
+
+<span class="page-link">
+
+
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<span class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ko">
+          
+          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
+          
+        </a>
+      </li>
+    
+  </ul>
+</span>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  // Links to cross-origin destinations are unsafe
+  var gll = document.getElementsByClassName('goog-logo-link')[0];
+  if (gll) {
+    gll.setAttribute('rel', 'noopener');
+  }
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</span>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('auto' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Algorithm | 1. 알고리즘이란? 공부해야하는 이유</h1>
+  <h2 class="post-subtitle">효율적 코딩을 위한 알고리즘을 알아보자👩‍💻👨‍💻</h2>
+
+  <p class="post-meta">
+    <time class="dt-published" datetime="2021-05-03T00:00:00+09:00" itemprop="datePublished"><i class="fa fa-calendar"></i> May 03, 2021
+    </time>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
+  </p>
+<div class="post-tags"><a class="post-tag" href="/tags.html#Algorithm">#Algorithm</a></div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <h2 id="0-들어가며">0. 들어가며</h2>
+<p><strong>Python을 이용한 알고리즘과 자료구조</strong>에 대해 공부한 내용을 바탕으로 간단히 포스팅할 계획입니다. <a href="https://spartacodingclub.kr/">스파르타 코딩클럽</a>의 알고보면 알기쉬운 알고리즘 강의를 수강하고 강의안을 참고하여 정리하였습니다.</p>
+
+<p>이번 포스트에서는 <strong>알고리즘이란 무엇인지, 그리고 왜 공부해야하는지</strong>에 대해 살펴보도록 하겠습니다.</p>
+
+<hr>
+<h2 id="1-알고리즘이란">1. 알고리즘이란?</h2>
+
+<p><img src="/assets/images/algorithm.png" width="60%"></p>
+
+<blockquote>
+  <p>어떤 문제의 해결을 위하여, 입력된 자료를 토대로 하여 원하는 출력을 유도하여 내는 규칙의 집합. 여러 단계의 유한 집합으로 구성되는데, 각 단계는 하나 또는 그 이상의 연산을 필요로 한다. [표준국어대사전]</p>
+</blockquote>
+
+<p><strong>어떤 문제가 있을 때, 그것을 해결하기 위한 일련의 동작들의 모임</strong>을 알고리즘이라고 합니다.</p>
+
+<ul>
+  <li>기말고사 직전 산더미인 과제를 해결하기</li>
+  <li>집에서 학교/회사로 출근하기</li>
+  <li>우유와 계란을 사오는 심부름하기</li>
+</ul>
+
+<p>이런 문제를 푸는 모든 방법이 알고리즘에 해당합니다.</p>
+<ul>
+  <li>
+<strong>과제를 해결하는 방법</strong>은 어떤 과제를 먼저 해야할지 과제의 중요성(학점 반영도)에 의해 순서를 정할 수도 있고, 데드라인에 따라 정할 수도 있습니다.</li>
+  <li>
+<strong>집에서 출근하는 방법</strong>은 다양합니다. 지하철, 버스, 택시, 도보 등을 이용하여 최소 환승이나 최소 시간 혹은 비용에 따라서 최선의 방법이 달라집니다. 최소 환승이 중요하다면 회사에 한번에 가는 버스를 쭉 타고 갈수도 있고, 최소 시간이 중요하다면 (물론 밀리지 않는 시간에) 택시를 타고 빠르게 갈 수 있습니다. 비용이 가장 중요하다면 <del>(추천하지는 않습니다.)</del> 걸어갈 수 있습니다.</li>
+  <li>
+<strong>우유와 계란을 사오는 심부름</strong>도 편리함을 기준으로 한다면 쿠팡 로켓프레시를 이용해서 편하게 주문을 하면 내일 집 앞에 도착합니다. 그러나 바로 사와야한다면 집에서 제일 가까운 슈퍼에서 바로 사오면 됩니다. 비용을 아끼는게 중요하다면 직접 농장에 가서 일을 하고 일삯으로 계란과 우유를 받아오는 방법이 최선의 방법일 수 있습니다.</li>
+</ul>
+
+<p>이렇듯 알고리즘은 미리 정해진 기준에 따라 문제를 해결하는 것이며, 다양한 해결 방법이 있습니다.</p>
+
+<p>참고로 알고리즘의 어원은 알고리즘은 9세기 페르시아 수학자로 ‘대수학의 아버지’라 불리는 <a href="https://ko.wikipedia.org/wiki/%EC%BD%B0%EB%A6%AC%EC%A6%88%EB%AF%B8">아부 압둘라 무함마드 무사 알콰리즈미</a>(<del>이름이 매우 기네요</del>)의 이름을 라틴어화한 알고리스무스(Algorismus)에서 유래한 표현입니다. 또한 대수학의 아버지라 불리는 만큼 대수학을 뜻하는 앨지브라(Alebra) 역시 그의 저서로부터 기원한다는 사실도 놀랍습니다.</p>
+
+<h2 id="2-알고리즘을-공부해야하는-이유">2. 알고리즘을 공부해야하는 이유</h2>
+
+<p>알고리즘을 공부해야하는 이유는 크게 2가지 입니다.</p>
+
+<ul>
+  <li>
+<strong>좋은 개발자가 되기 위해</strong>
+    <ul>
+      <li>개발자는 프로그램을 만드는 직업입니다. 즉, 좋은 개발자가 되려면 좋은 프로그램을 만들 줄 알아야합니다.</li>
+      <li>좋은 프로그램이란 적은 공간을 이용해서 빠른 속도로 수행되는 프로그램입니다.</li>
+      <li>그런 프로그램을 만들기 위해서는 경우에 따라 특정 자료구조나 접근방법을 사용해야 합니다. 즉, 프로그램을 잘하기 위해서는 여러 자료구조와 방법들을 배우고 익혀야 좋은 프로그램을 만들 수 있습니다.</li>
+    </ul>
+  </li>
+  <li>
+<strong>좋은 회사에 취직하기 위해</strong>
+    <ul>
+      <li>많은 회사들이 코딩테스트를 통해 개발자를 뽑고 있습니다. 카카오, 삼성, 구글 등 국내외 유망 IT 기업들 외에 많은 스타트업까지 코딩테스트를 개발자의 필수 관문으로 삼고 있습니다.</li>
+      <li>코딩테스트는 기초적인 지식과 해결책으로 적절한 사고를 할 수 있는지에 대해 검증하는 관문으로, 자료 구조와 접근 방법에 대 학습을 필요로 합니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="3-내가-알고리즘을-공부한-이유">3. 내가 알고리즘을 공부한 이유</h2>
+
+<p>필자의 개인적인 동기는 크게 2가지 입니다.</p>
+
+<h4 id="코드를-읽는-눈">코드를 읽는 눈</h4>
+
+<p><img src="/assets/images/bertsumsrc.PNG" width="30%"></p>
+<center> <small> Github 내 Bertsum 소스코드 중 일부 </small> </center>
+<p><br></p>
+
+<p>작년에 딥러닝 분석을 위해 소스 코드를 뜯어보고 수정 적용할 일이 있었습니다. 저자의 깃헙 레포에서 여러가지 model source 코드와 preprocess 등의 코드를 목적에 맞게 고쳐야했습니다만… 남의 코드를 읽고 이해해서 목적에 맞게 고치는 일이 쉽지 않습니다. 기본기를 다지고 프로그래밍 연습을 통해 구조적으로 빨리 읽고 이해하는 능력이 필요하다고 느꼈습니다.</p>
+
+<h4 id="코드의-효율적-구현">코드의 효율적 구현</h4>
+
+<p><img src="/assets/images/messycodebutitworks.jpg" width="50%"></p>
+<center> <small> <del>지난 n년간의 내가 작성한 과제 코드들.jpg </del> </small> </center>
+<p><br></p>
+
+<p>알고리즘과 자료구조를 배우면서 <em>‘학교 다닐 때 이것을 알았으면 얼마나 좋았을까?’</em> 라는 부분이 한두개가 아니었습니다. 여러 수업과 대외 활동에 코드를 제출했지만, 기본적으로 CS적 마인드가 없이 코딩하다보니 효율적인 코딩과는 거리가 있었던 것 같습니다. 대학원 데이터마이닝이론수업에서 방법론들을 밑바닥 코드로 구현한 적 있습니다. 많은 연산을 수행하고 아웃풋이 나와야하는데 <del>어떻게 수행하든</del> 맞는 결과가 나오면 된다는 마인드로 과제를 한게 아닌가 생각이 들었습니다. 따라서 CS적 마인드로 영리한 프로그래밍을 하기 위해 알고리즘 공부의 필요성을 느꼈습니다.</p>
+
+<p>제가 전공이 CS가 아니기 때문에 심도 깊은 포스팅은 아니겠지만, 비개발자의 입장에서 자료구조와 알고리즘에 대해 간단히 정리하고 실제 Python 코드를 통한 구현까지 적용하여 올리려합니다.</p>
+
+<p>다음 포스팅에서는 알고리즘의 기본 구현과 시간 복잡도, 공간 복잡도에 대해서 다루도록 하겠습니다.</p>
+
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<a class="previous" href="/statistics/2020/02/16/masters-thesis-nonpara-change-point.html" title="Empirical Likelihood for Change-point Detection using Double Quantile (졸업연구논문)">Empirical Likelihood for Change-point Detection using...</a><a class="next" href="/programming/2021/05/08/algorithm-02-time-complexity-big-o-notation.html" title="Algorithm | 2. 시간 복잡도와 빅오 표기법(Time complexity and Big-O notation)">Algorithm | 2. 시간 복잡도와 빅오...</a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li><a class="post-link" href="/etc/2022/03/14/M1-mac-jekyll-setting.html" title="Algorithm | 2. 시간 복잡도와 빅오 표기법(Time complexity and Big-O notation)">M1 mac - Jekyll blog 환경 세팅하기</a></li>
+<li><a class="post-link" href="/statistics/2019/11/25/nonpara-resampling-entropy.html" title="Algorithm | 2. 시간 복잡도와 빅오 표기법(Time complexity and Big-O notation)">Resampling using Multivariate Entropy in Classification</a></li>
+<li><a class="post-link" href="/computer-vision/2021/08/26/YOLOX.html" title="Algorithm | 2. 시간 복잡도와 빅오 표기법(Time complexity and Big-O notation)">YOLOX: Exceeding YOLO Series in 2021 (CVPR 2021)</a></li>
+<li><a class="post-link" href="/deep-learning/2021/08/04/cs231n-05.html" title="Algorithm | 2. 시간 복잡도와 빅오 표기법(Time complexity and Big-O notation)">CS231n | 5강 - Convolutional Neural Networks</a></li>
+</ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Unpublished Work <span class="copyleft">©</span> 2019-2022 Danalog</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

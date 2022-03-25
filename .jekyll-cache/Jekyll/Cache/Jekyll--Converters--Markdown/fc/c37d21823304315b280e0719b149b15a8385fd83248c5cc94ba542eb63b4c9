@@ -1,0 +1,125 @@
+I"�!<p>[CS231n] Lecture-3-Loss-Functions-and-Optimization<br />
+<a href="https://www.youtube.com/watch?v=h7iBpEHGVNc&amp;list=PL3FW7Lu3i5JvHM8ljYj-zLfQRF3EO8sYv&amp;index=3">3강 Video 바로가기</a></p>
+
+<ul>
+  <li>Contents
+    <ul>
+      <li>Linear classification II</li>
+      <li>Higher-level representations, image features</li>
+      <li>Optimization, stochastic gradient descent</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<p>지난 강의(Lecture2)에서 이미지 인신의 어려움에 대해 이야기 했다. 사람의 시각 인식과 컴퓨터의 인식에는 Semantic Gap이 존재했고 이를 극복하기 위해서는 여러 Challenge가 존재한다.
+또한 이미지 인식을 위한 기법으로 배운 KNN은 Data중심의 접근 방법으로 Hyperparameter인 W가 존재하고 이는 train 과정에서 세팅되어 test데이터를 predict한다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125530697-3f5f2c5d-d4f9-41c8-a44e-68b00f8a8e09.png" alt="image" /></p>
+
+<p>그렇다면 어떻게 W를 결정하느냐? W에 대해 좋다 나쁘다를 정량화하는 것이 바로 <strong>Loss Function</strong>이다. 그리고 이 최선의 W를 찾아가는 방법이 <strong>Optimization</strong>이다. 오늘은 이 2가지 방법에 대해 배울 것이다.</p>
+
+<h2 id="linear-classification-ii">Linear classification II</h2>
+
+<h3 id="loss-function">Loss Function</h3>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125530956-f38d74f7-4431-4235-83c8-a3f5c51e3bf3.png" alt="image" /></p>
+
+<p>Loss function은 현재 분류기가 얼마나 좋은지 말해준다. dataset에 대한 Loss fucntion은 $$f(x_{i},W)$$와 $$y_{i}$$의 차이에 대한 평균이다. 이것은 이미지 뿐만 아니라 매우 general하게 이용된다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125530996-52509d3f-ca05-4960-9d24-53e18ad40ecf.png" alt="image" /></p>
+
+<p>Multiclass SVM Loss가 말하는 것은 true score이 다른 score보다 훨씬 높다면 좋다는 것을 의미한다. 이 Loss는 safety margin보다 true score가 다른 score보다 높다면 loss가 올라가게 된다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125532945-9fc5646f-c547-4223-ab5c-bf888f375eb9.png" alt="image" /></p>
+
+<p>실제 class는 고양이인데 자동차 score(5.1)가 고양이 score(3.2)보다 높기 때문에 손실을 입는걸 볼 수 있다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125533260-814e2f28-5cc7-4648-83d9-af1e1688df6c.png" alt="image" /></p>
+
+<p>모든 score에 대한 loss에 대해 평균을 구하면 5.27이 이 함수에 대한 Loss가 된다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125534322-b919b563-2ca9-4df9-ba15-8900b522dcae.png" alt="image" /></p>
+
+<p>$ L=0 $이 되게 하는 W는 unique하지 않다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125534360-90b22274-24a2-4c6f-886f-4f29148a5a3e.png" alt="image" /></p>
+
+<p>Loss에 모델이 simple하게 해주는 Regularization term을 추가해서 train data에 overfitting되는 것을 막을 수 있다. 모델의 복잡성에 페널티를 부여하는 것이다. hyperparameter $ \lambda $를 조절해서 tuning한다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125590492-04a91e60-0b73-48ee-a454-cdcf27132d23.png" alt="image" /></p>
+
+<p>L2 Regularization은 w의 복잡성을 줄여준다.
+실제로 L2 Regularization은 weight가 분산된 w2를 선호한다.
+L1 Regularization은 그러나 변수가 shrinke하는 w1를 선호한다.</p>
+
+<h3 id="softmax-classifiermultinomial-logistic-regression">Softmax Classifier(Multinomial Logistic Regression)</h3>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125606668-d657092b-da30-477a-b18a-de9149792f43.png" alt="image" /></p>
+
+<p>0~1의 값을 가지도록 exponential을 취해주고 그 값들의 합이 1이 되도록 확률 분포를 따르도록 만들어준다. 이때 Loss function은 맞는 분류의 확률값이 클수록 loss가 작아지도록 $ L = -log P $ 를 최소화한다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125609504-d1418f3c-bf6f-45f7-bd34-cef87ef43df3.png" alt="image" /></p>
+
+<p>hinge loss(SVM)과 cross-entropy loss(Softmax)의 비교이다. SVM은 맞게 한번 분류되면 끝이지만 Softmax는 스코어를 더더 좋게 개선하기 위해 노력한다는 차이가 있다. 물론 딥러닝에서 두 loss를 다른거 쓰더라도 크게 결과가 달라지지는 않는다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125610974-2913985b-9ce7-4733-8e96-4b90f158118a.png" alt="image" /></p>
+
+<p>그렇다면 최적의 W를 찾는 방법은? 바로 최적화(Optimazation)이다.</p>
+
+<hr />
+
+<h2 id="optimazation">Optimazation</h2>
+
+<p>한번에 Loss의 minima가 되게하는 명시적인 해답을 찾으면 좋지만, 딥러닝에서는 그렇게 한번에 찾는게 불가능하다. 반복하여 점차 나아지게 하는 방법을 사용한다.</p>
+
+<p><strong>Random Search</strong>
+<img src="https://user-images.githubusercontent.com/62828866/125628941-37853001-0ae0-4a8c-bf69-88aa9999552a.png" alt="image" /></p>
+
+<p>15.5%의 정확도이다. 이건 좋은 방법이 아니다.</p>
+
+<p><strong>Follow the slope</strong>
+<img src="https://user-images.githubusercontent.com/62828866/125629029-775eb906-93db-4a40-8433-b568c812e69a.png" alt="image" /></p>
+
+<p>현재 서 있는 위치에서 경사를 느끼고 가장 가파른 곳으로 내려가는 방법이다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125629528-f2cc1d1f-6522-43a7-b7c6-9bf8d0e9442e.png" alt="image" /></p>
+
+<p>negative gradient 방향으로가 가장 가파르게 내려간다.</p>
+
+<p><em>Numerical gradient</em>
+<img src="https://user-images.githubusercontent.com/62828866/125630952-c2d0a1a9-3050-41ec-801f-55e86d8979ac.png" alt="image" /></p>
+
+<p>gradient를 모두 하나씩 다 구하는 건 계산도 오래 걸릴 뿐더러 효과적인 계산 방법이 아니다. 이러한 Numerical gradient는 디버깅에서 사용하기 좋다.</p>
+
+<p><em>Analytic gradient</em>
+<img src="https://user-images.githubusercontent.com/62828866/125635509-3f6cd17b-d109-4462-b134-4eb4d5c9279e.png" alt="image" /></p>
+
+<p>그러나 위처럼 계산할 필요가 없이 <em>미적분학의 요술 망치</em> (the magical hammer of calculus)를 사용하면, 훨씬 더 정확하고 빠르게 gradient를 구할 수 있다. 이 Analytic gradient는 실제적으로 사용되는 방법이다.</p>
+
+<h3 id="gradient-descent">Gradient Descent</h3>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125637842-91930eed-9974-441a-b5d0-0ba1d91a103d.png" alt="image" /></p>
+
+<p>weight를 계속 업데이트해주는데 gradient의 음의 방향으로 step size만큼 움직인다.
+step size(learning rate)가 가장 중요한 hyperparameter 중 하나인데, 학습시에 가장 먼저 세팅하려고 한다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125884829-ad796bb9-842b-4686-afb3-cdff16fb5d23.png" alt="image" /></p>
+
+<p>Gradient descent는 각 loss의 선형합이다 따라서 저번에 본 예시처럼 이미지 파일에서 사용한다면 엄청나게 큰 N을 다 계산해야한다 그런데 이건 너무 느리고 오래걸리고 비효율적이다.</p>
+
+<p>따라서 Stochasitic gradient descent를 사용한다.
+모든 train set(N)을 사용해서 구하지 않고 통상적으로 2의 제곱수인 32/64/128 크기의 미니배치를 사용해서 Loss를 근사하는 방법이다. 이 외에도 여러 fancy한 방법들이 많이 존재하고 있다.</p>
+
+<p>그 외의 이미지 인식 방법은 Color Histogram으로 이미지를 인식하는 법, Histogram of Oriented Gradients(HoG)으로 Dominant edge orientation으로 인하는 방법, Bag of Words방법으로 NLP처럼 이미지 조각 사전을 만들어서 인식하는 방법들이 있다.</p>
+
+<p><img src="https://user-images.githubusercontent.com/62828866/125884945-c4e2e7fc-f86c-418d-b6bd-96d3dd343641.png" alt="image" /></p>
+
+<p>그렇다면 이러한 Image feature를 이용하는 방법과 CNN은 어떤 차이가 있을까?
+Feature Extraction을 통한 전통적인 방식은 train을 하는 동안에도 Feature block이 fix이다.
+이에 반해 CNN은 다른 것은 매우 비슷하지만 <strong>사전에 feature를 정해놓지 않고 data에서 직접 feature를 학습하는 방법이다.</strong></p>
+
+<p>다음시간에는 Neural Network에 대해 다루게 된다!</p>
+
+:ET

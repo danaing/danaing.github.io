@@ -1,0 +1,125 @@
+---
+layout: about
+title: About
+---
+
+<style>
+/* 컨테이너 설정 */
+.container {display:flex;justify-content:center; flex-direction: row;}
+.inner-container {display:flex;flex-direction: column;width: 200px;text-align:center;margin-top:50px}
+
+/* 툴팁 기본 스타일 설정 시작 */
+.tooltip {
+  position: relative;
+  display: block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 10px;
+  background-color: rgb(130, 130, 130);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size : 12px;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* 툴팁 화살표 기본 스타일 설정 시작 */
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  border-style: solid;
+  border-width: 5px;
+}
+
+/* 아래쪽 툴팁 시작 */
+.tooltip .tooltip-bottom {
+  width: 70px;
+  top: 150%;
+  left: 50%;
+  margin-left: -35px;
+}
+
+.tooltip .tooltip-bottom::after {
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-color: transparent transparent rgb(130, 130, 130) transparent;
+}
+</style>
+
+
+<div style="text-align:center; font-size: x-large; font-weight: bold;"> 
+    About <br>
+    <img src="/assets/images/about/mimoticon.gif" width="250" alt="My Image">
+</div> <br>
+
+<div style="text-align:center; font-size: large; "> 
+    👋🏻 안녕하세요. <br> 
+    가능주의자 김단아입니다.
+</div>
+
+<div style="text-align:center; "> 
+    <mark style='background-color: #fffec3ef'> #Self-motivated </mark> &nbsp;
+    <mark style='background-color: #fffec3ef'> #Growth-mindset </mark>
+</div>
+
+<div style="text-align:center; margin-top: 10px;" >
+    <div style="width:25px; text-align: center; margin: 0 6px; display: inline-block; " class="inner-container">
+            <A href = "https://www.notion.so/danahk/Kim-Dan-Ah-ba7563508986456abce3516d2e75bb41" target="_blank"> 
+            <div class="tooltip">  <img src="/assets/images/about/user.png" width="25"/>  </A> 
+            <span class="tooltiptext tooltip-bottom" > Resume </span>
+        </div>
+    </div>
+
+    <div style="width:25px; text-align: center; margin: 0 6px; display: inline-block;" class="inner-container">
+        <A href = "mailto:danahkim@yonsei.ac.kr"> 
+            <div class="tooltip">     <img src="/assets/images/about/email.png" width="25" /> </A> 
+                <span class="tooltiptext tooltip-bottom" > Email </span>
+        </div>
+    </div>
+    <div style="width:25px; text-align: center;  margin: 0 6px; display: inline-block;" class="inner-container">
+        <A href = "https://www.linkedin.com/in/dan-ah-kim/" target="_blank"> 
+            <div class="tooltip">  <img src="/assets/images/about/linkedin.png" width="22" /> </A>
+                <span class="tooltiptext tooltip-bottom" > LinkedIn </span>
+    </div>
+</div>
+</div>
+
+<p>
+    <div style="font-size: medium; "> 
+        배우고 성장하고 더 나은 사람이 되기 위해 <br>
+        차근차근 차곡차곡 성장과 다양한 시행착오를 기록하는 블로그입니다.
+    </div>
+</p>
+
+<p>
+        <div style="font-size: medium; font-weight: bold;"> 
+             🔎 About Me 
+        </div>
+        <ul>
+        <li> 잘하는 것 <br>
+            맘먹으면 하는 실행력, 붙잡고 끝까지 문제 해결하기, 새로운 거 배우고 도전하기, 엑셀로 계획짜기 </li>
+        <li> 좋아하는 것 <br>
+            노란색, 강아지, 폴킴, 스노우보드, 플라잉요가, 전자기기, 기계식키보드, 기록하기 </li>
+        <li> 요즘 취미 <br>
+            올빼미형의 미라클모닝 도전, 셀프 인테리어, 맥북 탐구 </li> 
+    </ul>
+</p>
+<p>
+    <blockquote>
+        'The biggest adventure you can take is to live the life of your dreams.' - Oprah Winfrey -
+    </blockquote>
+    </p>
+<p>
+<div style="text-align:right; color: darkgray; "> 
+    Last updated on March, 2022
+</div>
+</p>
