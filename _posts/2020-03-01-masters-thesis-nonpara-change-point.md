@@ -129,7 +129,7 @@ $$
 The Empirical Likelihood Ratio(ELR) statistic to test $\theta = \theta_{0}$ is given by
 
 $$
-\mathbf{R(\theta_{0})} = \frac{L(F)}{L(F_{n})} = \max \left \( \prod_{i=1}^{n} np_{i} | \sum_{i=1}^{n} p_{i}m(x_{i}, \theta_{0})=0, p_{i} \ge 0, \sum_{i=1}^{n} p_{i} =1 \right \)
+\mathbf{R(\theta_{0})} = \frac{L(F)}{L(F_{n})} = \max \left ( \prod_{i=1}^{n} np_{i} | \sum_{i=1}^{n} p_{i}m(x_{i}, \theta_{0})=0, p_{i} \ge 0, \sum_{i=1}^{n} p_{i} =1 \right )
 $$
 
 Under the null model $\theta = \theta_{0}$ with mild regular conditions, $-2 \log \mathbf{R(\theta_{0})} \to \chi_{r}^{2}$ in distribution as $n \to \infty$, where $r$ is dimension of $m(x, \theta)$ (Owen, 1988). The empirical likelihood method can be extended to other constraints using Lagrange multiplier method to find $\\{p_{i}\\}_{i=1}^{n}$.
@@ -210,7 +210,7 @@ $$
 $$
 
 $$
-\left . \sum_{j=1}^{m} q_{j} I(Y_{j} \le \xi_{1-q}) )=1-q, p_{i}, q_{j} \ge 0, \sum_{i=1}^{n} p_{i} = \sum_{j=1}^{m} q_{j} =1  \right \)
+\left . \sum_{j=1}^{m} q_{j} I(Y_{j} \le \xi_{1-q}) )=1-q, p_{i}, q_{j} \ge 0, \sum_{i=1}^{n} p_{i} = \sum_{j=1}^{m} q_{j} =1  \right )
 $$
 
 라그랑주 승수법(Lagrange multiplier)을 통해 유니크한 람다를 구하고 이로 확률을 추정합니다. 따라서 유도되는 DLR는 위와 같습니다. 이때 이 test statistic을 최대화시키는 사이p와 사이1-q를 택하고, 큰 test statistic Dn은 가장 가능성이 큰 적어도 하나의 change-point가 있다는 뜻으로 귀무가설의 기각을 의미합니다. 증명은 Appendix.A에 수록되어 있습니다.
@@ -219,10 +219,10 @@ $$
 Using Lagrange multipliers to solve (\ref{eq5}), we can get following unique $\lambda's$ and $p_{i}$ ,  $q_{j}$. (Proof in Appendix.A) This leads to double quantile likelihood ratio(DLR) test statistic.
 
 $$
-\begin{aligned}
+\begin{gathered}
 \mathbf{R(\xi_{p}, \xi_{1-q})} = \left ( \frac{np}{n_{1}} \right )^{n_{1}} \left ( \frac{nq}{n_{2}} \right )^{n_{2}} \left ( \frac{n(1-p-q)}{n-n_{1}-n_{2}} \right )^{n-n_{1}-n_{2}} \\ 
  \left ( \frac{mp}{m_{1}} \right )^{m_{1}} \left ( \frac{mq}{m_{2}} \right )^{m_{2}} \left ( \frac{m(1-p-q)}{m-m_{1}-m_{2}} \right )^{m-m_{1}-m_{2}}
-\end{aligned}
+\end{gathered}
 $$
 
 where $\sum_{i=1}^{n} I(X_{i} \le \xi_{p}) = n_{1}$, $\sum_{i=1}^{n}I( X_{i} > \xi_{1-q}) = n_{2}$ and $\sum_{j=1}^{m} I(Y_{j} \le \xi_{p}) = m_{1}$, $\sum_{j=1}^{m}I( Y_{j} > \xi_{1-q}) = m_{2}$
