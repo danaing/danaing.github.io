@@ -51,7 +51,7 @@ Multiple $m$ change-points $\tau_{1}, \tau_{2}, \ldots , \tau_{m}$ exist in the 
 The distributions of the sequence can be written as
 
 $$
-X_{i} \sim \\ 
+X_{i} \sim
 \begin{cases}
 & F_{1} \; \; \; \; \text{ if $i \le \tau_{1}$} \\ 
 & F_{2} \; \; \; \; \text{ if $\tau_{1} < i \le \tau_{2}$} \\ 
@@ -179,6 +179,7 @@ We can construct the following quantile empirical likelihood test statistic unde
 $$
 \mathbf{R(\xi_{p})} = \max \left ( \prod_{i=1}^{n} np_{i} \prod_{j=1}^{m} mq_{j} | \sum_{i=1}^{n} p_{i} I(X_{i} \le \xi_{p}) ) = p,  \right .
 $$
+
 $$
 \left . 
 \sum_{j=1}^{m} q_{j} I(Y_{j} \le \xi_{p}) ) = p, p_{i}, q_{j} \ge 0, \sum_{i=1}^{n} p_{i} = \sum_{j=1}^{m} q_{j} =1 \right )
@@ -203,8 +204,11 @@ $$
 \label{eq5}\tag{5}
 \mathbf{R(\xi_{p}, \xi_{1-q})} = \max \left ( \prod_{i=1}^{n} np_{i} \prod_{j=1}^{m} mq_{j} | \sum_{i=1}^{n} p_{i} I(X_{i} \le \xi_{p}) )=p, \right .
 $$
+
 $$
-\sum_{j=1}^{m} q_{j} I(Y_{j} \le \xi_{p}) )=p, \sum_{i=1}^{m} q_{i} I(X_{i} \le \xi_{1- q}) )=1-q, $$
+\sum_{j=1}^{m} q_{j} I(Y_{j} \le \xi_{p}) )=p, \sum_{i=1}^{m} q_{i} I(X_{i} \le \xi_{1- q}) )=1-q, 
+$$
+
 $$
 \left . \sum_{j=1}^{m} q_{j} I(Y_{j} \le \xi_{1-q}) )=1-q, p_{i}, q_{j} \ge 0, \sum_{i=1}^{n} p_{i} = \sum_{j=1}^{m} q_{j} =1  \right \)
 $$
