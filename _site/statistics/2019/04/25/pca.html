@@ -122,7 +122,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
 </style>
 <script>MathJax={"tex":{"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"svg":{"fontCache":"global"}}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script><body>
 
 
 
@@ -850,7 +851,7 @@ $$</p>
 <p>우선 이 $\mathbf{X}$ 가 아니라, $X_{i}$를 선형 조합한 새로운 $y_{i}$(1 x n)으로 표현하겠습니다.</p>
 
 <p>$$
-\left\{\begin{matrix} y_{1} = a_{11}x_{1} + a_{12}x_{2} + \ldots + a_{1p}x_{p} = a_{1}^{T}\mathbf{X} \\ \vdots  \\ y_{p} = a_{p1}x_{1} + a_{p2}x_{2} + \ldots + a_{pp}x_{p} = a_{p}^{T}\mathbf{X}  \end{matrix}\right.
+\left{\begin{matrix} y_{1} = a_{11}x_{1} + a_{12}x_{2} + \ldots + a_{1p}x_{p} = a_{1}^{T}\mathbf{X} \\ \vdots  \\ y_{p} = a_{p1}x_{1} + a_{p2}x_{2} + \ldots + a_{pp}x_{p} = a_{p}^{T}\mathbf{X}  \end{matrix} \right.
 $$</p>
 
 <p>이러한 선형 결합은 $y_{i}$는 $\mathbf{X}$를 새로운 $a_{i}$(p x 1)의 축으로 사영(projection)한 것입니다. 만들어진 $y_{i}$로 구성된 행렬 $\mathbf{Y}$ (p x n)은 아래처럼 나타낼 수 있습니다.</p>
@@ -977,9 +978,9 @@ $$</p>
       <div>Related Articles</div>
       <ul>
         <li><a class="post-link" href="/diary/2022/01/20/review-2021.html" title="Resampling using Multivariate Entropy in Classification">2021년 회고</a></li>
+<li><a class="post-link" href="/computer-vision/2021/08/26/YOLOX.html" title="Resampling using Multivariate Entropy in Classification">YOLOX: Exceeding YOLO Series in 2021 (CVPR 2021)</a></li>
+<li><a class="post-link" href="/deep-learning/2021/07/16/cs231n-02.html" title="Resampling using Multivariate Entropy in Classification">CS231n | 2강 - Image Classification</a></li>
 <li><a class="post-link" href="/computer-vision/2021/09/08/efficientnet.html" title="Resampling using Multivariate Entropy in Classification">EfficientNet: Rethinking Model Scaling for Convolutional Neural Networks (ICML 2019)</a></li>
-<li><a class="post-link" href="/statistics/2019/11/30/19-fall-statistics-conference.html" title="Resampling using Multivariate Entropy in Classification">2019년 추계 통계학술논문발표회 수상 후기</a></li>
-<li><a class="post-link" href="/deep-learning/2021/08/11/cs231n-06.html" title="Resampling using Multivariate Entropy in Classification">CS231n | 6강 - Training Neural Networks part I</a></li>
 </ul>
     </div>
 <div class="post-comments"></div></section>
@@ -1128,16 +1129,15 @@ $$</p>
     </div>
   </div>
 </footer>
+</body>
+</html><!-- for latex  --><html>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     tex2jax: {
-      inlineMath: [ ['$', '$'] ],
-      displayMath: [ ['$$', '$$'] ],
+      inlineMath: [['$','$'], ['\\(','\\)']],
       processEscapes: true
     }
   });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" type="text/javascript"></script>
-
-  </body>
-</html>
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+  </html>
