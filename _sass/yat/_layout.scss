@@ -224,7 +224,7 @@ html {
   }
 
   .post-title {
-    @include relative-font-size(2.225); //2.625
+    @include relative-font-size(2.625);
     letter-spacing: -1px;
     line-height: 1;
 
@@ -294,7 +294,7 @@ html {
         padding: 0px 3px;
         background-color: $brand-color;
         color: #fff;
-        font-size: 1px;
+        font-size: 10px;
         font-weight: 600;
         border-radius: 2px;
       }
@@ -508,7 +508,7 @@ html {
   padding: 31px 0 0;
 
   a {
-    @include relative-font-size(1); //1.125
+    @include relative-font-size(1.125);
     line-height: 15px;
     color: #666;
     max-width: 50%;
