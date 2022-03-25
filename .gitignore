@@ -1,0 +1,15 @@
+.DS_Store
+
+# Added when running `jekyll new PATH` or serving in incremental mode.
+.jekyll-metadata
+
+# Compiled site
+_site
+.jekyll-cache/
+
+# Sass garbage
+.sass-cache
+
+# Bundler
+.bundle/
+vendor/
