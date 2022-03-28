@@ -5,7 +5,7 @@ subtitle: 에러와 함께하는 Homebrew, Ruby, Jekyll 처음 설치하기
 date:   2022-03-14
 author: danahkim
 categories: etc
-tags: Jekyll Ruby MacOS
+tags: Jekyll Ruby macOS
 ---
 
 
