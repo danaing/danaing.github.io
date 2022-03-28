@@ -5,7 +5,7 @@ subtitle: iTerm2, Oh-My-Zh로 편리한 개발환경 세팅하기
 date:   2022-03-28
 author: danahkim
 categories: etc
-tags: MacOS
+tags: macOS
 ---
 
 > 영롱하고 영리한 🍎 macOS 터미널을 만들어보자
