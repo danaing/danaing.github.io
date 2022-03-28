@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-  <!-- Google Analytics -->
-
-  {% include extenstions/google-analytics.html %}
   {%- include head.html -%}
+  {%- include google-analytics.html -%}
 
   <body>
 
@@ -34,4 +32,3 @@
   });
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-  

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://danaing.github.io/sitemap.xml
