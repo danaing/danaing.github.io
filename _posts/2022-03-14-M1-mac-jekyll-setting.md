@@ -36,7 +36,7 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 
 password 입력창에 사용 계정의 비밀번호를 입력한다. 그리고 RETURN을 누르면 설치가 완료된다.
 
-<img src="/assets/images/M1Mac-jekyll-setting/jekyll-setting-01.png"  title="untitled">
+<img src="/assets/images/M1-mac-jekyll-setting/jekyll-setting-01.png"  title="untitled">
 
 ```console
 Warning: /opt/homebrew/bin is not in your PATH.
@@ -63,7 +63,7 @@ brew 명령어로 잘 설치가 되었는지 확인한다.
 $ awesome-d@Danah-MacBookPro ~ % brew --version                                                             
 ```
 
-<img src="/assets/images/M1Mac-jekyll-setting/jekyll-setting-02.png"  title="untitled">
+<img src="/assets/images/M1-mac-jekyll-setting/jekyll-setting-02.png"  title="untitled">
 
 3.4.1 버전으로 설치가 완료되었다.
 
@@ -84,7 +84,7 @@ macOS에서는 `rbenv`를 통해 Ruby를 설치한다. `rbenv`는 여러개의 R
 $ brew install rbenv ruby-build
 ```
 
-<img src="/assets/images/M1Mac-jekyll-setting/jekyll-setting-03.png"  title="untitled">
+<img src="/assets/images/M1-mac-jekyll-setting/jekyll-setting-03.png"  title="untitled">
 
 아래 명령어를 통해 설치 가능한 Ruby 버전을 확인한다.
 
@@ -92,7 +92,7 @@ $ brew install rbenv ruby-build
 $ rbenv install -l
 ```
 
-<img src="/assets/images/M1Mac-jekyll-setting/jekyll-setting-04.png"  title="untitled">
+<img src="/assets/images/M1-mac-jekyll-setting/jekyll-setting-04.png"  title="untitled">
 
 Ruby는 최신 버전이 호환안되는 경우가 있기 때문에(에러의 원인 경우가 많았다ㅠㅠ) 안전하게 최신 버전보다 한두개 아래 버전을 설치할 것을 추천한다.
 
@@ -108,7 +108,7 @@ $ rbenv install {원하는 버전}
 $ rbenv versions
 ```
 
-<img src="/assets/images/M1Mac-jekyll-setting/jekyll-setting-05.png"  title="untitled">
+<img src="/assets/images/M1-mac-jekyll-setting/jekyll-setting-05.png"  title="untitled">
 
 별(*) 표시가 system 앞에 설정되어있는 것을 알 수 있고 방금 설치한 2.7.5 버전이 보인다. rbenv global 버전을 2.7.5로 변경한다.
 
@@ -119,7 +119,7 @@ $ rbenv rehash
 
 버전을 다시 확인하면 2.7.5로 선택되어있다.
 
-<img src="/assets/images/M1Mac-jekyll-setting/jekyll-setting-06.png"  title="untitled">
+<img src="/assets/images/M1-mac-jekyll-setting/jekyll-setting-06.png"  title="untitled">
 
 ## Bundler 설치하기
 
@@ -202,7 +202,7 @@ $ sudo rm -rf /Library/Developer/CommandLineTools
 $ xcode-select --install
 ```
 
-<img src="/assets/images/M1Mac-jekyll-setting/jekyll-setting-07.png"  title="untitled">
+<img src="/assets/images/M1-mac-jekyll-setting/jekyll-setting-07.png"  title="untitled">
 
 다시 jekyll을 설치한다
 
@@ -210,7 +210,7 @@ $ xcode-select --install
 $ gem install jekyll
 ```
 
-<img src="/assets/images/M1Mac-jekyll-setting/jekyll-setting-08.png"  title="untitled">
+<img src="/assets/images/M1-mac-jekyll-setting/jekyll-setting-08.png"  title="untitled">
 
 jekyll 4.2.2 버전으로 설치 성공!
 
@@ -226,7 +226,7 @@ $ bundler install
 $ bundle exec jekyll serve
 ```
 
-<img src="/assets/images/M1Mac-jekyll-setting/jekyll-setting-09.png"  title="untitled">
+<img src="/assets/images/M1-mac-jekyll-setting/jekyll-setting-09.png"  title="untitled">
 
 드디어 jekyll blog 환경 세팅 끝!!!! 몇날 며칠 붙잡은 끝에 성공했다. Mac OS가 처음이라 하나하나 공부하고 검색하며 트러블슈팅하는데에 정말 오래 걸렸다.
 
