@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "M1 mac - 터미널 세팅하기 (iTerm2, oh-my-zhs)"
-subtitle: iTerm2, Oh-My-Zh로 편리한 개발환경 세팅하기
+subtitle: iTerm2, Oh-My-Zhs로 편리한 개발환경 세팅하기
 date:   2022-03-28
 author: danahkim
 categories: etc
