@@ -83,11 +83,7 @@ $ open ~/.zshrc
 
 - [iTerm2 color shemes 다운로드 링크](https://iterm2colorschemes.com/)
 
-설정에서 원하는 컬러 프리셋으로 변경할수도 있고, 아래 링크에서 많은 컬러 테마를 다운받아서 사용할 수 있다.
-
-링크에서 zip파일로 다운받으면 schemes 라는 폴더 안에 .itermcolors 파일이 존재하고 이를 컬러 프리셋에 import 한다.
-
-나는 Atom이라는 컬러로 바꾸었다.
+설정에서 원하는 컬러 프리셋으로 변경할수도 있고, 아래 링크에서 많은 컬러 테마를 다운받아서 사용할 수 있다. 링크에서 zip파일로 다운받으면 schemes 라는 폴더 안에 .itermcolors 파일이 존재하고 이를 컬러 프리셋에 import 한다. 나는 Atom이라는 컬러로 해봤다.
 
 <img src="/assets/images/M1-mac-iTerm2-setting/iTerm2-setting-07.png">
 
