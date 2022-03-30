@@ -159,6 +159,18 @@ plugins=(
 ```
 <img src="/assets/images/M1-mac-iTerm2-setting/iTerm2-setting-13.png">
 
-## 😎 완성!!
+### 4.3. Neofetch 설치
+
+화룡점정으로 영롱한 사과 모양이 빠질 수 없다. [neofetch](https://github.com/dylanaraps/neofetch)는 사용자의 정보가 뜨도록 하는 플러그인으로 커스터마이징이 가능하다. Homebrew를 통해 설치하고, terminal 실행 시 자동으로 실행되도록 `open ~/.zshrc` 을 입력해서 에디터로 맨 아래에 `neofetch`라고 한 줄 추가해준다.
+
+```console
+$ brew install neofetch
+```
 
 <img src="/assets/images/M1-mac-iTerm2-setting/iTerm2-setting-14.png">
+
+
+## 😎 완성!!
+
+<img src="/assets/images/M1-mac-iTerm2-setting/iTerm2-setting-01.png">
+
