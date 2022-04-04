@@ -45,7 +45,7 @@ Conda란 **가상환경을 통해 패키지 관리를 쉽게 해주는 도구**�
 
 아래 명령어를 통해 다운받은 파일을 설치한다.
 
-```
+``` Console
 $ cd downloads
 $ bash Miniforge3-MacOSX-arm64.sh
 ```
@@ -59,7 +59,7 @@ Conda를 설치하고 터미널에 들어가면 앞에 (base)라고 뜨는 변�
 
 Conda는 기본적으로 `conda`명령어를 통해 관리한다. 아래 명령어로 새로운 가상환경을 만든다. Python 버전은 3.8로 설치했다.
 
-```
+``` Console
 # 관리중인 가상환경 정보
 $ conda info --envs
 # 새로운 가상환경 생성
@@ -69,7 +69,7 @@ $ conda create -n [가상환경명] python=3.8
 
 새로운 가상환경을 활성화시키고 설치된 리스트를 확인한다.
 
-```
+``` Console
 $ conda activate [가상환경명]
 $ conda list
 ```
@@ -77,19 +77,21 @@ $ conda list
 
 나중에 가상환경을 비활성화시킬때 사용하는 명령어이다. 
 
-```
+``` Console
 $ conda deactivate
 ```
 
 나중에 가상환경을 삭제할 때 쓰는 명령어이다.
 
-```
+``` Console
 $ conda remove -n [가상환경명] --all
 ```
 
-가상환경복제
+가상환경을 복제할 때 쓰는 명령어이다.
 
-conda create —clone [가상환경명] -n [새가상환경명]
+``` Console
+$ conda create —clone [가상환경명] -n [새가상환경명]
+```
 
 ## TensorFlow 설치하기
 
@@ -97,33 +99,33 @@ conda create —clone [가상환경명] -n [새가상환경명]
 
 ( -c [채널] [패키지] / -y: Do not ask for confirmation)
 
-```
+``` Console
 $ conda install -c apple tensorflow-deps -y
 ```
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-07.png">
 
 그 다음에 OS에 맞는 TensorFlow를 Python에 설치한다.
 
-```
+``` Console
 $ python -m pip install tensorflow-macos
 ```
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-08.png">
 
 마지막으로 M1에서 TensorFlow의 GPU를 지원해주는 Tensorflow-Metal plugin을 설치한다.
 
-```
+``` Console
 $ pip install tensorflow-metal
 ```
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-09.png">
 
 Jupyter Notebook의 차세대 버전인 Jupyter Lab을 설치해서 TensorFlow가 잘 구동이 되는지 확인해보자. 
 
-```
+``` Console
 $ conda install -c conda-forge jupyter jupyterlab -y
 $ jupyter lab
 ```
 
-```python
+``` python
 import tensorflow as tf
 tf.__version__
 tf.config.list_physical_devices()
@@ -154,7 +156,7 @@ M1 Pro에 **TensorFlow 2.8.0** 버전이 성공적으로 설치되었고 훈련 
 
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-15.png">
 
-VSCode에서 가상환경 연동 완료! 이로써 M1 Pro에 GPU를 지원하는 TensorFlow 환경을 성공적으로 세팅했다!!🥹
+VSCode에서 가상환경 연동 완료! 이로써 M1 Pro에 GPU를 지원하는 TensorFlow 환경을 성공적으로 세팅했다!!🥳
 
 ## References
 
