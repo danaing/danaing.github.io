@@ -55,7 +55,7 @@ categories: etc
 
 본 자격증 취득을 위해 Coursera에서 무료로 수강할 수 있는 [DeepLearning.AI TensorFlow 개발자 전문 인증 과정](https://www.coursera.org/professional-certificates/tensorflow-in-practice) 강의가 있습니다. 2명의 강사가 나오는데 Google에서 AI Advocacy를 이끌고 있는 Laurence Moroney가 직접 DeepLearning과 TensorFlow에 대해 강의하시고, Stanford 대학의 유명 교수인 Andrew Ng 교수님이 담화에 나오십니다. 강의 자료와 설명도 매우 좋습니다. 1개의 강의 당 1주일동안 무료로 수강합니다. **이 강의에서 시험에 관련된 모든 내용을 거의 커버하고 또한 강의에서 나온 문제가 시험에 그대로 나오니** 강의 수강을 적극 권장드립니다. 만약 강의가 필요 없다면 위 강의의 [Laurence Moroney의 Github](https://github.com/lmoroney/dlaicourse) 활용하시면 데이터셋과 예제 그리고 과제의 답을 볼 수 있습니다.
 
-저의 경우는 Coursera 강의 중에 필요한 부분을 들으면서, 깃헙에서 문제와 예제를 구해 스스로 모델을 여러개 만들어 각각의 성능을 개선하는 방법으로 공부하였습니다. **구글 Colab Pro 버전**을 사용하여 여러 모델을 만들었습니다. 
+저의 경우는 Coursera 강의 중에 필요한 부분을 들으면서, 깃헙에서 문제와 예제를 구해 스스로 모델을 여러개 만들어 각각의 성능을 개선하는 방법으로 공부하였습니다. 특히 시험 합격 기준이 각 문제당 90점 이상으로 꽤 빡빡하므로 너무 훈련세트에 오버피팅 되지 않도록 집중했습니다. 그리고 실제 모델을 만들때는 **구글 Colab Pro 버전**으로 여러 모델을 만들었습니다. 
 
 
 ## 시험 후기
@@ -67,10 +67,10 @@ categories: etc
 * **Category 2**: <mark style='background-color: #fff5b1'>Model from learning dataset</mark>  
 Fashion Mnist 데이터로 classification하는 문제가 나왔습니다. 저는 Conv2D와 MaxPooling2D를 연속적으로 사용하는 CNN 모델을 만들고 dropout으로 과적합을 방지하였으며, optimizer는 Adam을 사용하여 훈련하였습니다. Fashion Mnist는 class가 원핫인코딩이 되어있지 않으므로 Loss는 **Sparse categorical cross entropy**로 잘 설정해주는게 중요합니다. 
 
-* **Category 3**: <mark style='background-color: #fff5b1'>Convolutional Neural Network with real-world image dataset</mark>
+* **Category 3**: <mark style='background-color: #fff5b1'>Convolutional Neural Network with real-world image dataset</mark>  
 Horse or Humans dataset으로 말과 사람을 구분하는 분류기를 만드는 문제가 주어졌습니다. **ImageDataGenerator**를 사용해서 데이터에 랜덤한 변화를 주어 데이터를 증강하였습니다. 여기서 파라미터를 잘 주어야 성능이 올라갑니다. 그리고 모델은 pretrain된 **VGG16** 모델을 사용하였습니다.
 
-* **Category 4**: <mark style='background-color: #fff5b1'>NLP Text Classification with real-world text dataset</mark>
+* **Category 4**: <mark style='background-color: #fff5b1'>NLP Text Classification with real-world text dataset</mark>  
 RNN을 활용하는 텍스트 분류입니다. Sarcasm 데이터셋이 주어지고 **LSTM**을 사용한 NLP 모델을 만들었습니다. 
 
 * **Category 5**: <mark style='background-color: #fff5b1'>Sequence Model with real-world numeric dataset</mark>  
