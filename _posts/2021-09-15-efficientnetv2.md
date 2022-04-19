@@ -4,7 +4,7 @@ title:  "EfficientNetV2: Smaller Models and Faster Training (ICML 2021)"
 date:   2021-09-15
 author: DanahKim
 tags: Image-Classification ICML
-categories: Computer-vision
+categories: Computer-Vision
 ---
 
 
