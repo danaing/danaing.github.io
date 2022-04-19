@@ -4,7 +4,7 @@ title:  "EfficientNet: Rethinking Model Scaling for Convolutional Neural Network
 date:   2021-09-08
 author: danahkim
 tags: Image-Classification ICML
-categories: Computer-vision
+categories: Computer-Vision
 ---
 
 
