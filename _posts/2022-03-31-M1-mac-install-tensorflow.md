@@ -8,17 +8,16 @@ categories: etc
 tags: macOS TensorFlow
 ---
 
-
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-01.png" width='80%'>
 
-이번 apple silicon을 구매하면서 가장 기대했던 부분은 M1 Pro칩에 **뉴럴엔진**으로 머신러닝의 연산 성능이 극대화되었다는 것이다. **M1 Pro의 GPU를 사용하는 TensorFlow를 개발 환경 구축 과정**을 기록해본다.
+이번 apple silicon을 구매하면서 가장 기대했던 부분은 M1 Pro칩에 **뉴럴엔진**으로 머신러닝의 연산 성능이 극대화되었다는 것이다. <mark style='background-color: #fff5b1; font-weight:bold;'>M1 Pro의 GPU를 사용하는 TensorFlow를 개발 환경 구축 과정</mark>을 기록해본다.
 
 - 사양
     - macOS Monterey 12.3
     - M1 Pro - arm64(Apple Silicon)
-    - Miniforge 3
-    - Python 3.8
-    - TensorFlow 2.8.0
+    - **Miniforge 3**
+    - **Python 3.8**
+    - **TensorFlow 2.8.0**
 
 ## 가상환경이란?
 
