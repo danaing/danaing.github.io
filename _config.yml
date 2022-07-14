@@ -155,7 +155,7 @@ defaults:
   home:
     heading: "Danalog"
     subheading: "Live the life of your dreams"
-    banner: "Your image url"
+    banner: "/assets/images/banners/home.jpg"
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
