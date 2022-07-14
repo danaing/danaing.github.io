@@ -26,7 +26,7 @@
 
 title: Danalog
 email: danahkim@yonsei.ac.kr
-author: Danalog
+author: DanahKim
 
 # Copyright setting
 # You can use any html code, currently below placeholders are available:
@@ -66,7 +66,7 @@ yat:
 google_analytics: "G-79FSZRJKCE"
 
 # If you want to generate website sitemap, you can set true
-# sitemap: false
+sitemap: true
 
 # If you want to change site language, you can set lang option
 # lang: "en"  # default lang is en
@@ -177,7 +177,7 @@ defaults:
 # excerpt_size: 350
 
 # Pagination setting
-# paginate: 5
+paginate: 10
 
 # Disqus comments
 disqus:
