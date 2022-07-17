@@ -48,13 +48,13 @@ Conda란 **가상환경을 통해 패키지 관리를 쉽게 해주는 도구**�
 $ cd downloads
 $ bash Miniforge3-MacOSX-arm64.sh
 ```
-<img src="/assets/images/M1-mac-install-tensorflow/tensorflow-04.png">
+<img src="/assets/images/M1-mac-install-tensorflow/tensorflow-16.png">
 
 라이센스 내용이 나오면 q를 누르고, 나머지는 엔터와 yes를 입력하면 된다. 아래 conda init에서는 반드시 yes를 입력한다.
 
-<img src="/assets/images/M1-mac-install-tensorflow/tensorflow-16.png">
+<img src="/assets/images/M1-mac-install-tensorflow/tensorflow-04.png">
 
-36개의 패키지가 설치됐다고 뜨면서 설치가 완료된다. (아나콘다는 300개 이상의 패키지가 함께 설치되는데에 비해 매우 약소한 패키지가 설치된다.)
+조금 기다리면 36개의 패키지가 설치됐다고 뜨면서 설치가 완료된다. (아나콘다는 300개 이상의 패키지가 함께 설치되는데에 비해 매우 약소한 패키지가 설치된다.)
 
 ## 가상환경 생성하기
 
