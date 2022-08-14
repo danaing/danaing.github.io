@@ -12,16 +12,19 @@ tags: macOS TensorFlow
 
 이번 apple silicon을 구매하면서 가장 기대했던 부분은 M1 Pro칩에 **뉴럴엔진**으로 머신러닝의 연산 성능이 극대화되었다는 것이다. <mark style='background-color: #fff5b1; font-weight:bold;'>M1 Pro의 GPU를 사용하는 TensorFlow를 개발 환경 구축 과정</mark>을 기록해본다.
 
-- 사양
+- 맥북 사양
+    - Apple M1 Pro(8코어 CPU, 14코어 GPU, 16코어 Neural Engine, 16GB 메모리)
+    - apple silicon - arm64
     - macOS Monterey 12.3
-    - M1 Pro - arm64(Apple Silicon)
-    - **Miniforge 3**
-    - **Python 3.8**
-    - **TensorFlow 2.8.0**
+
+- 설치 환경
+  - **Miniforge 3**
+  - **Python 3.8**
+  - **TensorFlow 2.8.0**
 
 ## 가상환경이란?
 
-일단 가상환경이 무엇인지 알아보자. 가상환경은 **독립적인 파이썬의 실행 환경**을 의미한다. 논리적으로 각자 다른 종류와 버전의 패키지를 가질 수 있는 환경이다. 프로젝트에 맞는 파이썬 환경을 구축하기 위해 필요한 패키지를 담아 놓는 바구니라고 생각할 수 있다.
+일단 가상환경이 무엇인지 먼저 알아보자. 가상환경은 **독립적인 파이썬의 실행 환경**을 의미한다. 논리적으로 각자 다른 종류와 버전의 패키지를 가질 수 있는 환경이다. 프로젝트에 맞는 파이썬 환경을 구축하기 위해 필요한 패키지를 담아 놓는 바구니라고 생각할 수 있다.
 
 그렇다면 가상환경을 왜 얘기하는 것일까? 예를 들어 **프로젝트A**에 필요한 패키지 버전과 **프로젝트B**에 필요한 패키지 버전이 다를 수 있다. 만약 버전이 다른데 하나의 환경에서 개발한다면 버전이 충돌하고 버그가 발생할 것이다. 그렇다고 프로젝트마다 버전을 upgrade하거나 downgrade해서 사용하는 것을 비효율적이고 또 다른 문제를 야기할 수 있다. 따라서 가상환경이 필요하며 TensorFlow에서도~~(다른 어디에서도)~~ 가상환경을 세팅을 권장하고 있다.
 
@@ -34,11 +37,11 @@ tags: macOS TensorFlow
 
 Conda란 **가상환경을 통해 패키지 관리를 쉽게 해주는 도구**이다. 패키지 관리 시스템 conda를 통해 가상환경을 관리하는데 그 안에 필요한 패키지들을 설치하고, 그 가상환경 안에서 각 프로젝트가 다른 환경에서 작동하게 한다.
 
-보통 아나콘다(Anaconda)라고 데이터 사이언스에 필요한 각종 패키지가 함께 설치되는 가상환경 관리 도구를 많이 사용한다. 나도 아나콘다를 먼저 검색해서 설치했으나, 도중에 TensorFlow가 되지 않아 중도에 포기하고 다른 방법을 찾아보았다.😭 아나콘다는 인텔 CPU까지만 지원하기에 Apple Silicon(M1)의 경우 아직 완벽히 지원되지 않는다고 한다.
+보통 아나콘다(Anaconda)라고 데이터 사이언스에 필요한 각종 패키지가 함께 설치되는 가상환경 관리 도구를 많이 사용한다. 나도 아나콘다를 먼저 검색해서 설치했으나, 도중에 TensorFlow가 되지 않아 중도에 포기하고 다른 방법을 찾아보았다.😭 아나콘다는 인텔 CPU까지만 지원하기에 Apple Silicon의 경우 아직 완벽히 지원되지 않는다고 한다.
 
 ## Miniforge 설치하기
 
-따라서 Macbook M1 Pro(Apple Silicon)에서 TensorFlow를 사용하려면 Miniforge를 사용해야한다. Miniforge는 Apple Silicon의 arm64를 공식적으로 지원하는 Conda이다. Miniforge 공식 [링크](https://github.com/conda-forge/miniforge/)에서 아래 파일을 다운받는다. 
+따라서 Macbook M1 Pro(Apple Silicon)에서 TensorFlow를 사용하려면 **Miniforge**를 사용해야한다. Miniforge는 Apple Silicon의 **arm64**를 공식적으로 지원하는 Conda이다. Miniforge 공식 [링크](https://github.com/conda-forge/miniforge/)에서 아래 파일을 다운받는다. 
 
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-03.png" width='80%'>
 
@@ -50,7 +53,7 @@ $ bash Miniforge3-MacOSX-arm64.sh
 ```
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-16.png">
 
-라이센스 내용이 나오면 q를 누르고, 나머지는 엔터와 yes를 입력하면 된다. 아래 conda init에서는 반드시 yes를 입력한다.
+라이센스 내용이 나오면 q를 누르고, 나머지는 엔터와 yes를 입력하면 된다. 위에 보이는 conda init에서는 반드시 yes를 입력한다.
 
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-04.png">
 
