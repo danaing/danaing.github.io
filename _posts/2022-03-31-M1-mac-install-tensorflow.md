@@ -33,7 +33,7 @@ tags: macOS TensorFlow
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-02.png">
 
 > ‘파이썬을 잡는데 도움이 필요합니다.’  
-’가상 환경에 보관하십시오.’  (((아나콘다^^)))
+’가상 환경에 보관하십시오.’  (((콘다^^)))
 
 Conda란 **가상환경을 통해 패키지 관리를 쉽게 해주는 도구**이다. 패키지 관리 시스템 conda를 통해 가상환경을 관리하는데 그 안에 필요한 패키지들을 설치하고, 그 가상환경 안에서 각 프로젝트가 다른 환경에서 작동하게 한다.
 
@@ -73,7 +73,7 @@ $ conda create -n [가상환경명] python=3.8
 ```
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-05.png">
 
-새로운 가상환경을 활성화시키고 설치된 리스트를 확인한다.
+새로운 가상환경을 활성화시키고, 설치된 리스트를 확인한다.
 
 ``` Console
 $ conda activate [가상환경명]
@@ -81,13 +81,13 @@ $ conda list
 ```
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-06.png">
 
-나중에 가상환경을 비활성화시킬때 사용하는 명령어이다. 
+작업이 끝나고 나중에 가상환경을 비활성화시킬때 사용하는 명령어이다. 
 
 ``` Console
 $ conda deactivate
 ```
 
-나중에 가상환경을 삭제할 때 쓰는 명령어이다.
+아래는 나중에 쓰일 수 있는 conda 명령어로 가상환경을 삭제할 때 쓰는 명령어이다.
 
 ``` Console
 $ conda remove -n [가상환경명] --all
@@ -96,14 +96,14 @@ $ conda remove -n [가상환경명] --all
 가상환경을 복제할 때 쓰는 명령어이다.
 
 ``` Console
-$ conda create —clone [가상환경명] -n [새가상환경명]
+$ conda create —clone [가상환경명] -n [복제할 가상환경명]
 ```
 
 ## TensorFlow 설치하기
 
 먼저 TensorFlow dependencies(tensorflow-deps)를 apple 채널을 통해 다운받는다. 
 
-( -c [채널] [패키지] / -y: Do not ask for confirmation)
+( install 뒤에 명령어 뜻은 -c [채널] [패키지] 의 의미이고, -y는 Do not ask for confirmation에 -y 옵션을 주는 것이다.)
 
 ``` Console
 $ conda install -c apple tensorflow-deps -y
