@@ -4,7 +4,7 @@ title:  "Jupyter Notebook - Cell 줄 바꿈(line wrap) 적용하기"
 subtitle: Jupyter Notebook configuration에 line wrap 적용하는 방법
 date:   2022-09-24
 author: danahkim
-categories: Etc.
+categories: etc
 tags: Jupyter-Notebook
 ---
 
