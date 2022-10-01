@@ -1,12 +1,11 @@
 ---
 layout: post
-title:  "Algorithm | 2. 시간 복잡도와 빅오 표기법(Time complexity and Big-O notation)"
+title:  "Algorithm | 시간 복잡도와 빅오 표기법(Time complexity and Big-O notation)"
 subtitle: 효율적 코딩을 위한 알고리즘을 알아보자👩‍💻👨‍💻
 date:   2021-05-08
 author: danahkim
 tags: Algorithm
 categories: Programming
-cover:  "/assets/covers/algorithm.png"
 ---
 
 
