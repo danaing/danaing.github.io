@@ -1,12 +1,11 @@
 ---
 layout: post
-title:  "Algorithm | 1. 알고리즘이란? 공부해야하는 이유"
+title:  "Algorithm | 알고리즘이란? 공부해야하는 이유"
 subtitle: 효율적 코딩을 위한 알고리즘을 알아보자👩‍💻👨‍💻
 date:   2021-05-03
 author: danahkim
 tags: Algorithm
 categories: Programming
-cover:  "/assets/covers/algorithm.png"
 ---
 
 
