@@ -63,7 +63,7 @@ $ bash Miniforge3-MacOSX-arm64.sh
 
 Conda를 설치하고 터미널에 들어가면 앞에 (base)라고 뜨는 변화가 생기는데, 여기서 가상환경을 만들고 활성화시키면 그 가상환경이 괄호 안에 뜨게 된다.
 
-Conda는 기본적으로 `conda`명령어를 통해 관리한다. 아래 명령어로 새로운 가상환경을 만든다. Python 버전은 3.8로 설치했다.
+Conda는 기본적으로 `conda`명령어를 통해 관리한다. 아래 명령어로 새로운 가상환경을 만든다. Python 버전은 3.8로 설치했다. 중간에 Proceed?가 나오면 y를 입력하고 엔터를 눌러준다.
 
 ``` Console
 # 관리중인 가상환경 정보
@@ -81,13 +81,13 @@ $ conda list
 ```
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-06.png">
 
-작업이 끝나고 나중에 가상환경을 비활성화시킬때 사용하는 명령어이다. 
+참고로 몇가지 conda 명령어를 알아보자면, 작업이 끝나고 나중에 가상환경을 비활성화시킬때 사용하는 명령어는 아래와 같다.
 
 ``` Console
 $ conda deactivate
 ```
 
-아래는 나중에 쓰일 수 있는 conda 명령어로 가상환경을 삭제할 때 쓰는 명령어이다.
+아래는 가상환경을 삭제할 때 쓰는 명령어이다.
 
 ``` Console
 $ conda remove -n [가상환경명] --all
@@ -124,21 +124,46 @@ $ pip install tensorflow-metal
 ```
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-09.png">
 
-Jupyter Notebook의 차세대 버전인 Jupyter Lab을 설치해서 TensorFlow가 잘 구동이 되는지 확인해보자. 
+
+
+## Jupyter lab에 가상환경 kernel 추가하기
+
+Jupyter Notebook의 차세대 버전인 Jupyter Lab을 설치해서 가상환경을 kernel로 추가하고 TensorFlow가 잘 구동이 되는지 확인해보자. 
+
+먼저 아래 명령어를 통해 Jupyter Lab을 설치한다.
 
 ``` Console
 $ conda install -c conda-forge jupyter jupyterlab -y
 $ jupyter lab
 ```
 
+Jupyter lab에 이 가상환경을 kernel로 추가하기 위해 아래 명령어를 통해 ipykernel을 다운받고 kernel을 추가해준다.
+
+```Console
+$ pip install ipykernel
+$ python -m ipykernel install --user --name [가상환경명] --display -name "[kernel에 보여질 이름]" 
+```
+
+<img src="/assets/images/M1-mac-install-tensorflow/tensorflow-17.png">
+
+이제 Jupyter Lab을 실행하면, 아래처럼 새로 설치한 가상환경(빨간색 박스)이 kernel로 보이게 된다.
+
+<img src="/assets/images/M1-mac-install-tensorflow/tensorflow-18.png">
+
+새로 설치한 kernel을 선택해서 새 notebook을 열고 아래 코드를 통해 tensorflow가 잘 설치되었는지, 사용 가능한  device는 무엇인지 확인해본다.
+
 ``` python
 import tensorflow as tf
 tf.__version__
 tf.config.list_physical_devices()
 ```
-<img src="/assets/images/M1-mac-install-tensorflow/tensorflow-10.png">
-
 M1 Pro에 **TensorFlow 2.8.0** 버전이 성공적으로 설치되었고 훈련 가능한 장치로 CPU와 GPU가 가능한 것을 볼 수 있다!!!👏
+
+<img src="/assets/images/M1-mac-install-tensorflow/tensorflow-19.png">
+
+참고로 우측 상단의 빨간 박스 부분에는 현재 kernel의 정보가 보이며, 클릭하면 kernel을 선택할 수 있는 창이 아래처럼 뜬다.
+
+<img src="/assets/images/M1-mac-install-tensorflow/tensorflow-20.png" width='50%'>
 
 [텐서플로 2.0 시작하기 튜토리얼](https://www.tensorflow.org/tutorials/quickstart/beginner) 예제로 MNIST를 간단히 돌려보았다.
 
@@ -163,6 +188,8 @@ M1 Pro에 **TensorFlow 2.8.0** 버전이 성공적으로 설치되었고 훈련 
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-15.png">
 
 VSCode에서 가상환경 연동 완료! 이로써 M1 Pro에 GPU를 지원하는 TensorFlow 환경을 성공적으로 세팅했다!!🥳
+
+
 
 ## References
 
