@@ -141,7 +141,7 @@ Jupyter lab에 이 가상환경을 kernel로 추가하기 위해 아래 명령�
 
 ```Console
 $ pip install ipykernel
-$ python -m ipykernel install --user --name [가상환경명] --display -name "[kernel에 보여질 이름]" 
+$ python -m ipykernel install --user --name [가상환경명] --display-name "[kernel에 보일 이름]" 
 ```
 
 <img src="/assets/images/M1-mac-install-tensorflow/tensorflow-17.png">
