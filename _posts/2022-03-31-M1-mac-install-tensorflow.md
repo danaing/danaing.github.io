@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "M1 Pro에 TensorFlow2.X 설치 및 개발 환경 구축하기 (feat. Miniforge, GPU, ipykernel, VSCode)"
-subtitle: Conda 가상환경으로 TensorFlow사용하고 VSCode와 연동하기
+subtitle: Conda 가상환경으로 TensorFlow 설치하고 jupyter lab, VSCode와 연동하기
 date:   2022-03-31
 author: danahkim
 categories: etc
