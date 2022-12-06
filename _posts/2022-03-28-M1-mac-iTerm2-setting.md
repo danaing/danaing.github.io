@@ -16,7 +16,7 @@ tags: macOS
     1. iTerm2 설치
     1. oh-my-zhs 설치
     1. iTerm2 커스터마이징: 테마/폰트/컬러/상태바
-    1. 플러그인 설치: 자동완성/하이라이터
+    1. 플러그인 설치: 자동완성/하이라이터/Neofetch
 
 - 2021년형 M1 Pro
 - mac OS Monterey 기준
@@ -69,7 +69,7 @@ $ open ~/.zshrc
 
 위 링크에 들어가서 zip파일을 다운받고 .ttf 파일을 눌러 서체를 설치해준다.
 
-`iTerm2 > Preference > Profiles > Text > Font` 에서 다운받은 D2Coding 으로 폰트를 변경한다.
+iTerm2를 켠 뒤 상태바 좌상단의 `iTerm2 > Preference > Profiles > Text > Font` 에서 다운받은 D2Coding 으로 폰트를 변경한다.
 
 <img src="/assets/images/M1-mac-iTerm2-setting/iTerm2-setting-05.png">
 
@@ -83,7 +83,7 @@ $ open ~/.zshrc
 
 - [iTerm2 color shemes 다운로드 링크](https://iterm2colorschemes.com/)
 
-설정에서 원하는 컬러 프리셋으로 변경할수도 있고, 아래 링크에서 많은 컬러 테마를 다운받아서 사용할 수 있다. 링크에서 zip파일로 다운받으면 schemes 라는 폴더 안에 .itermcolors 파일이 존재하고 이를 컬러 프리셋에 import 한다. 나는 Atom이라는 컬러로 해봤다.
+설정에서 원하는 컬러 프리셋으로 변경할수도 있고, 아래 링크에서 많은 컬러 테마를 다운받아서 사용할 수 있다. 링크에서 zip파일로 다운받으면 schemes 라는 폴더 안에 .itermcolors 파일이 존재하고 이를 컬러 프리셋에 import 한다. 아래는 Atom이라는 컬러 프리셋이다. 참고로 최종 완성된 테마는 Snazzy를 사용하였다.
 
 <img src="/assets/images/M1-mac-iTerm2-setting/iTerm2-setting-07.png">
 
@@ -91,7 +91,7 @@ $ open ~/.zshrc
 
 <img src="/assets/images/M1-mac-iTerm2-setting/iTerm2-setting-08.png">
 
-Atom 테마를 클릭하여 변경한다.
+원하는 테마를 클릭하여 변경한다.
 
 <img src="/assets/images/M1-mac-iTerm2-setting/iTerm2-setting-09.png">
 
@@ -155,9 +155,11 @@ plugins=(
 ```
 <img src="/assets/images/M1-mac-iTerm2-setting/iTerm2-setting-13.png">
 
-### 4.3. Neofetch 설치
+### 4.3. Neofetch
 
-화룡점정으로 영롱한 사과 모양이 빠질 수 없다. [neofetch](https://github.com/dylanaraps/neofetch)는 사용자의 정보가 뜨도록 하는 플러그인으로 커스터마이징이 가능하다. Homebrew를 통해 설치하고, terminal 실행 시 자동으로 실행되도록 `open ~/.zshrc` 을 입력해서 에디터로 맨 아래에 `neofetch`라고 한 줄 추가해준다.
+-  [Neofetch 깃헙 링크](https://github.com/dylanaraps/neofetch)
+
+화룡점정으로 영롱한 🍎사과 모양이 빠질 수 없다. Neofetch는 iTerm2 부팅 시에 사용자의 정보가 뜨도록 하는 플러그인으로 다양하게 커스터마이징이 가능하다. Neofetch 플러그인을 Homebrew를 통해 설치하고 terminal 실행 시 자동으로 실행되도록 `open ~/.zshrc` 을 입력해서 에디터로 맨 아래에 `neofetch`라고 한 줄 추가해준다.
 
 ```console
 $ brew install neofetch
