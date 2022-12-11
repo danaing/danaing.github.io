@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Array의 요소 개수 세는 방법 정리"
+title:  "Array의 요소 개수 세는 방법 3가지"
 subtitle: value_counts, Counter, count 매서드 정리
 date:   2022-09-28
 author: danahkim
@@ -26,11 +26,12 @@ DataFrame의 컬럼은 `value_counts()`를 이용해서 숫자를 셀 수 있다
 
 ## Scikit-learn의 label 세기
 
-따라서 scikit-learn의 모델로 classification이 된 label의 요소 개수를 셀 때는 아래처럼 3가지 방법이 가능하다.
+따라서 scikit-learn의 kmeans모델로 classification이 된 label의 요소 개수를 셀 때는 아래처럼 3가지 방법이 가능하다.
 
 ### 1. value_counts() 사용하는 방법
 
 ```python
+import pandas as pd
 pd.Series(kmeans.labels_).value_counts()
 >> 0    2726
    2    1068
