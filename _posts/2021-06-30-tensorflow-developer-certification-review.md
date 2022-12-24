@@ -4,7 +4,7 @@ title:  "TensorFlow Developer Certificate(텐서플로우 개발자 전문 자�
 date:   2021-06-30
 author: danahkim
 tags: TensorFlow
-categories: etc
+categories: Review
 ---
 
 ![image](https://user-images.githubusercontent.com/62828866/129131720-299a1329-c499-4834-aeec-13140d46db3b.png)
