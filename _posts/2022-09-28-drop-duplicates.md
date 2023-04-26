@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "DataFrame의 중복 행 제거하기"
-subtitle: drop_duplicates를 이용하여 중복행 제거하기
+subtitle: drop_duplicates를 이용하여 중복 행 제거하는 방법
 date:   2022-09-28
 author: danahkim
 categories: Data-Science
@@ -10,9 +10,9 @@ tags: Python pandas
 
 >  파이썬에서 데이터를 분석하면서 마주쳤던 곤란한 상황과 그 해결 방법에 대해 정리하고자 한다.
 
-사실 실무에서 데이터를 추출하고 전처리하는 많은 과정은 SQL 쿼리문을 통해 한다. 이 때 많은 테이블에서 여러 테이블을 join하여 분석할 데이터의 모습이 갖춰지곤 한다.
+많은 경우, 실무에서 데이터를 추출하고 원하는 모양으로 데이터셋을 전처리하는 큰 과정은 SQL을 이용한 쿼리문을 통해 이루어 진다. 여러 테이블에서 추출한 데이터를 join하여 분석할 데이터의 모습이 갖춰지곤 한다.
 
-단순화시킨 예를 들어보자면 아래 테이블을 가지고 2개의 데이터프레임을 만들고 이를 join하고 싶은 것이다.
+단순화시킨 예를 들어보자면, 아래 테이블을 가지고 2개의 데이터프레임을 만들고 이를 join하고 싶은 것이다.
 
 <img src="/assets/images/2022-09-28-python.asset/datatable.png" alt="datatable" style="zoom:50%;" />
 
@@ -44,7 +44,7 @@ DataFrame의 중복 행을 제거하는 방법을 아래 메서드를 이용한�
 
 
 
-Python 코드로는 아래와 같은 모습이 된다.
+drop_duplicates를 이용한 전처리 코드로는 아래와 같은 모습이 된다.
 
 ```python
 t_amt = df.groupby('ID')['amt'].sum()
