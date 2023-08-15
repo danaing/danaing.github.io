@@ -13,7 +13,7 @@
 {% else %}
   {% assign excerpt_size = excerpt_size
     | default: site.excerpt_size
-    | default: 350 %}
+    | default: 300 %}
 {% endif %}
 
 {%- include functions.html func='get_article_words' -%}
