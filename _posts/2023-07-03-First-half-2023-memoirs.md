@@ -22,11 +22,11 @@ tags: Retrospective
 
 ## 발자국을 모아
 
-사실 코로나 2차에 걸린 김에, 7월에 다 쓰지 못했던 글을 마무리해보려한다. 나의 23년 상반기 발자국들 모아보기👣
+코로나 2차에 걸린 김에, 못 다 썼던 글을 마무리해보려한다. 나의 23년 상반기 발자국들 모아보기👣
 
 
 
-### 코로나 이후 첫 해외 여행
+### 코로나 이후 첫 해외 여행을 떠나다
 
 직딩 n년차에 드디어 **첫 해외 여행**을 다녀왔다. 입사한 이후로는 쭉 코시국이었기에, 보통 돈을 벌기 시작하면서 한번씩 떠나보는 그런 해외 여행 한번을 못갔었다. 그 때문인지 해외를 간다면 ***가장 가기 어렵고, 머나먼 이국*** 으로 떠나고 싶었다. <span style = "color: DarkGray;">(이게 바로 보복여행이다!)</span> 구글맵을 켜서 우리나라 반대편 어디로 갈까 찾다보니 저 먼 구석에 **아이슬란드**가 눈에 들어왔고, *그래! 겨울을 가장 겨울스럽게 보내자!* 며 얼음나라 아이슬란드, 그리고 영어권 국가에 가고 싶다는 이유로 **영국**을 골라 훌쩍 17일 간의 여행을 떠났다.
 
@@ -65,14 +65,14 @@ tags: Retrospective
 그때 본 풍경과 내가 느낀 생각을 절대 잊지 않겠노라 했지만, 벌써 이렇게 기억이 흐려지는게 못내 아쉽다. 미래의 내가 이렇게 아쉬워할 줄 알고 과거의 내가 선제적으로(?) 고프로까지 사가서 부지런히 영상을 찍어왔건만, 아직도 그 선명한 영상들은 SD카드 안에서 동면 중이다. 그래서 내가 무엇을 했고 어떤 걸 느꼈냐면... 은 **여행기**로 담아보려 한다. *To be continued*. <span style = "color: DarkGray;">(올해 안에 영상 편집..할 수 있겠지?😅)</span>
 
 
-### 직무를 변경하다
+### 개발 직군이 되었다니
 
 Software 직군으로 전환하고 **데이터 엔지니어링** 직무로 변경되었다! 이건 나에게 꽤나 마일스톤같은 일인게, 나는 문과였기에 과거에는 내가 Software 직군이 되리라 상상해보지 못했기 때문이다.
 
 Software 직군으로 전환 가능한 요건을 충족한 시점에 나는 새로 생긴 TF로 조직을 이동하게 되었고, 여기서 전사의 데이터 체계를 기획하고 관장하는 새로운 Data Governance의 업무를 맡았다. 그래서 직무도 데이터 엔지니어링으로 바뀐 것이다. 조직 이동도 큰 이벤트라 상반기에는 새 조직에 적응하고 새 업무를 익히는 데에 꽤나 에너지를 많이 쏟았다.
 
 
-<iframe width="1038" height="584" src="https://www.youtube.com/embed/cQgfvx_7sw8" title="The new Morning | 19시의 모닝 편 | 기아" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe style="position: absolute; width:100%; height:100%;" width="1038" height="584" src="https://www.youtube.com/embed/cQgfvx_7sw8" title="The new Morning | 19시의 모닝 편 | 기아" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
 
