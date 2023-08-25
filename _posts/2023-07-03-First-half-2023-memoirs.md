@@ -71,7 +71,10 @@ Software 직군으로 전환하고 **데이터 엔지니어링** 직무로 변�
 
 Software 직군으로 전환 가능한 요건을 충족한 시점에 나는 새로 생긴 TF로 조직을 이동하게 되었고, 여기서 전사의 데이터 체계를 기획하고 관장하는 새로운 Data Governance의 업무를 맡았다. 그래서 직무도 데이터 엔지니어링으로 바뀐 것이다. 조직 이동도 큰 이벤트라 상반기에는 새 조직에 적응하고 새 업무를 익히는 데에 꽤나 에너지를 많이 쏟았다.
 
-![](https://youtu.be/cQgfvx_7sw8)
+
+<iframe width="1038" height="584" src="https://www.youtube.com/embed/cQgfvx_7sw8" title="The new Morning | 19시의 모닝 편 | 기아" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 
 데이터 엔지니어로 전환하자마자 TV에서 '데이터 엔지니어의 하루'라는 광고가 나오는 것을 보고 나에게 있어 이런 시기적절한 타이밍에 너무 놀랐다. 아무래도 이름이 Data + Engineer이니, 있어보인달까.. 요즘 핫한 직무이긴한가보다. Data-Centric한 기술과 비즈니스를 만드는 일을 하고 싶었기 때문에, 데이터에 대해서도, 개발에 대해서도 아직 알아가야 할 게 많지만 이 직무에 대해 알아가는게 흥미롭고, 재미있다!
 
