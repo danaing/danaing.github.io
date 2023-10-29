@@ -5,7 +5,7 @@ subtitle:
 date: 2022-12-31
 author: danahkim
 categories: Diary
-tags: Retrospective
+tags: Retrospection
 ---
 
 ## Goodbye 2022
