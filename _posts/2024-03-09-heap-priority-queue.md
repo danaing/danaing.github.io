@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Data Structure | Priority Queue(Heap)"
+title:  "Data Structure | Heap(Priority Queue)"
 subtitle: Heap 구조를 이해하고 Python 구현 방법 살펴보기
 date: 2024-03-09
 author: danahkim
@@ -16,7 +16,7 @@ tags: Data-Structure Python
 
 Priority Queue는 우선순위가 높은 데이터가 먼저 나오는 구조이다.
 
-- Stack: 나중에 들어온 데이터가 먼저 나감(FILO)
+- Stack: 나중에 들어온 데이터가 먼저 나감(LIFO)
 - Queue: 먼저 들어온 데이터가 먼저 나감(FIFO)
 - <mark style='background-color: #fff5b1'>Priority Queue</mark>: 우선순위가 높은 데이터가 먼저 나감
 
