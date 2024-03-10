@@ -6,7 +6,6 @@ date: 2024-03-09
 author: danahkim
 categories: Programming
 tags: Data-Structure Python
-
 ---
 
 
@@ -74,7 +73,9 @@ Heap 구조는 기본적으로 두가지 특성을 만족해야한다.
 
 ### Lazy Update
 
-배열에 값을 삭제하면 Heap 구조가 깨져버리기 때문에 불가능하다! 따라서 일단 PQ(Priority Queue) 리스트에 추가해주고, 나중에 검사해서 데이터를 확인하는 방법을 사용한다.
+배열에 값이 바뀌었을 때는 그럼 어떻게 하는가? 배열에 값을 변경하는 작업은 swap될 때마다 index값을 바꾸어줘야해서 현실적으로 쉽지 않다. 또한 배열에 값을 삭제하면 Heap 구조가 깨져버리기 때문에 불가능하다!
+
+따라서 일단 PQ(Priority Queue) 리스트에 추가해주고, 나중에 검사해서 데이터를 확인하는 방법을 사용한다.
 
 
 
@@ -93,16 +94,20 @@ Heap 구조는 기본적으로 두가지 특성을 만족해야한다.
 
 
 
+파이썬을 기준으로 heapq라는 library를 사용하면 이미 자료구조가 구현되어있으며, heappush은 알아서 이진트리에 값을 넣어주고, heappop은 최상위노드 1개를 반환해준다. (참고로 heap 배열 안에 담긴 순서는 우선순위와 관련이 없이 트리 구조로 담겨있으니 다룰 때 주의해야한다.)
+
 예를 들어, id: score를 가지고 있는 info dictionary가 있고, score가 높은 순으로 우선순위로 가지는 PQ에서 우선순위가 높은 3개를 뽑는 psudo 코드로 구현해보면 아래와 같다. (id 별로 score값은 1개로 가정)
 
 ```python
+from heapq import heappush, heappop
+
 while pq and len(answer) < 3:
     score, idx = map(abs, heappop(pq))
     # (1) 유효성 체크
     if idx not in info: continue
     if info[idx] != score: continue
     # (2) 중복 체크
-  	if idx in tmp: continue
+    if idx in tmp: continue
     answer.append((score, idx))
 
 # 다시 넣어줘야한다면 아래 로직 진행
