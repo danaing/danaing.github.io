@@ -4,7 +4,7 @@ title:  "Data Structure | 자료구조란"
 subtitle: 자료구조의 의미와 그 종류를 알아보자
 date:   2022-03-20
 author: danahkim
-tags: Data-structure
+tags: Data-Structure
 categories: Programming
 ---
 
