@@ -74,7 +74,7 @@ Heap 구조는 기본적으로 두가지 특성을 만족해야한다.
 
 ### Lazy Update
 
-배열에 값을 삭제하면 Heap 구조가 깨져버리기 때문에 불가능하다! 따라서 일단 PQ(Priority Queue를 줄여 말함)에 추가해주고, 나중에 검사해서 데이터를 확인하는 방법이다.
+배열에 값을 삭제하면 Heap 구조가 깨져버리기 때문에 불가능하다! 따라서 일단 PQ(Priority Queue) 리스트에 추가해주고, 나중에 검사해서 데이터를 확인하는 방법을 사용한다.
 
 
 
@@ -82,10 +82,10 @@ Heap 구조는 기본적으로 두가지 특성을 만족해야한다.
    1. 삭제가 진행되는 경우에는 **값의 존재 여부**
    2. 업데이트가 진행되는 경우에는 **최근 값과 같은 값인지**를 체크한다
 2. 직전에 동일한 값을 뽑았는지 **중복성을 체크**한다.
-   1. 예를들어 Top3개를 추출할 때, 같은 값이 여러번 나올 수 있다.
-      1. 앞서서 뽑힌 리스트에 속해있는지 체크하거나
-      2. 뒤에 뽑을 데이터가 지금의 데이터와 같지 않도록 while문을 통해 걸러준다
-3. 필요시 뽑아낸 Top 리스트를 다시 pq에 push해준다.
+   - 예를들어 Top3개를 추출해야하면, 업데이트 되기 전에 동일 값이 있었다면 여러번 나올 수 있다. (3->5->3 으로 업데이트 된 경우)
+     1. 앞서서 이미 뽑은 answer 리스트에 속해있는지 체크하거나
+     1. 뒤에 뽑을 데이터가 지금의 데이터와 같지 않도록 while문을 통해 걸러준다
+3. 필요시 뽑아낸 answer 리스트를 다시 pq에 push해준다.
 
 
 
@@ -96,23 +96,23 @@ Heap 구조는 기본적으로 두가지 특성을 만족해야한다.
 예를 들어, id: score를 가지고 있는 info dictionary가 있고, score가 높은 순으로 우선순위로 가지는 PQ에서 우선순위가 높은 3개를 뽑는 psudo 코드로 구현해보면 아래와 같다. (id 별로 score값은 1개로 가정)
 
 ```python
-while pq and len(tmp) < 3:
+while pq and len(answer) < 3:
     score, idx = map(abs, heappop(pq))
     # (1) 유효성 체크
     if idx not in info: continue
     if info[idx] != score: continue
     # (2) 중복 체크
   	if idx in tmp: continue
-    tmp.append((score, idx))
+    answer.append((score, idx))
 
 # 다시 넣어줘야한다면 아래 로직 진행
-for idx, score in tmp:
+for idx, score in answer:
   heappush(pq, (-score, idx))
 
 # 결과 출력
-if len(tmp) < 3:
+if len(answer) < 3:
     return -1
 else:
-    return tmp
+    return answer
 ```
 
