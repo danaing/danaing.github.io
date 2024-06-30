@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Data Engineering | 빅데이터의 분산 처리"
+title:  "빅데이터의 분산 처리 프레임워크(Hadoop, Spark)과 쿼리엔진"
 subtitle: 대규모 분산 처리 프레임워크와 쿼리 엔진
 date: 2024-06-13
 author: danahkim
@@ -17,7 +17,7 @@ tags: Data-Engineering
 
 ## **1. 대규모 분산 처리의 프레임워크**
 
-<img src="../assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_1.png"/>
+<img src="/assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_1.png"/>
 
 - **구조화 데이터(Structured data)**: 스키마가 명확하게 정의된 데이터(테이블의 컬럼 명, 데이터형, 테이블 간의 관계를 정의해서 SQL로 집계가 가능함) → **기존의 데이터 웨어하우스에 축적** 
 - **비구조화 데이터(Unstructured data)**: 스키마가 없는 데이터(자연 언어로 작성된 텍스트 데이터와 이미지, 동영상 등)
@@ -27,7 +27,7 @@ tags: Data-Engineering
 
 ### **Hadoop**
 
-<img src="../assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_2.png"/>
+<img src="/assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_2.png"/>
 
 빅데이터를 대표하는 시스템 바로 Hadoop이다.
 
@@ -44,7 +44,7 @@ tags: Data-Engineering
 
 : 여러 대의 서버에 데이터를 분산시키고 , 각 서버에 저장된 데이터를 동시에 처리하는 방식
 
-<img src="../assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_3.png"/>
+<img src="/assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_3.png"/>
 
 Hadoop에서 처리되는 데이터 대부분은 **분산 파일 시스템인 HDFS에 저장****큰 데이터 블록을 여러 데이터 노드에 분산시키는 방식**네트워크에 연결된 파일 서버이며, **다수 컴퓨터에 파일을 복사하여 중복성을 높임 →** 대용량 데이터를 안전하게 저장할 수 있도록 설계데이터를 빠르고 효율적으로 처리할 수 있음
 
@@ -52,7 +52,7 @@ Hadoop에서 처리되는 데이터 대부분은 **분산 파일 시스템인 HD
 
 : 클러스터의 리소스를 관리하고 애플리케이션의 스케줄링을 담당
 
-<img src="../assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_4.png"/>
+<img src="/assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_4.png"/>
 
 **CPU나 메모리 등의 계산 리소스**는 매니저인 YARN에 의해 관리됨**컨테이너**라고 불리는 단위로 관리클러스터 전체의 부하를 보고 비어있는 호스트부터 **컨테이너**를 할당함
 
@@ -60,7 +60,7 @@ Hadoop에서 처리되는 데이터 대부분은 **분산 파일 시스템인 HD
 
 : 여러 대의 적당한 성능의 서버로 분산시켜 빠르게 데이터를 처리하는 방법
 
-<img src="../assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_5.png"/>
+<img src="/assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_5.png"/>
 
 2004년 구글에서 발표데이터를 **'Map' 단계에서 처리**하고 그 결과를 **'Reduce' 단계에서 요약****Map:** **분산(Spliting)할 데이터를 Key, Value 쌍으로 분산 처리**해서 (ex. count 문제라면 Key가 몇 번 나왔는지 Value에 저장) 처리 & 리스트 생성**Reduce:** **각 분석된 데이터를 통합관리**(Shuffling 한 뒤 Reducing. Filtering과 Sorting으로 원하는 데이터 추출하고, 중복 데이터를 제거, Load balancing)이 과정을 통해 복잡하고 대용량의 데이터 집합을 분산시켜 처리할 수 있다.**비구조화 배치 데이터를 가공하는 데에 적합**하며 **자바** 기반 프레임워크**왜 배치 데이터 처리에서 적합할까?** 분산된 데이터를 한 번에 쭉 끌어 오기 때문이다. 그러면 작은 쿼리 반복 수행은, 시스템 처리에서 오버헤드가 크니까 다소 부적합하다. 
 
@@ -74,13 +74,13 @@ Hadoop에서 처리되는 데이터 대부분은 **분산 파일 시스템인 HD
 - **-** 작은 프로그램을 빠르게 실행하거나 여러번 실행되는 애드 혹 쿼리에는 부적합
 - **-** 실시간 쿼리를 지원하지 않아 실시간 데이터 처리나 분석에는 적합하지 않음
 
-<img src="../assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_6.png"/>
+<img src="/assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_6.png"/>
 
 
 
 Hive on MapReduce에서는 각 데이터 처리 스테이지 사이에 대기 시간이 있습니다. 이는 Hive가 MapReduce 작업을 사용하여 쿼리를 계산하고, 각 작업은 데이터를 디스크에 읽고 쓰는 과정을 포함하기 때문입니다.복잡한 쿼리의 경우, 여러 개의 MapReduce 작업이 연속적으로 실행되어야 합니다. 각 MapReduce 작업이 끝날 때마다 **중간 결과를 디스크에 기록하고,** 다음 작업이 이를 다시 읽어들여야 합니다. 이 과정에서 발생하는 디스크 I/O는 비효율적이며, 이로 인해 대기 시간이 늘어나게 됩니다.또한, 각 MapReduce 작업은 JVM(Java Virtual Machine)을 시작하는 과정을 포함하는데, 이 과정 또한 상당한 시간이 소요됩니다. 이러한 대기 시간은 쿼리의 전체 실행 시간을 증가시키는 주요 요인 중 하나입니다.이런 이유로 Hive on Tez 같은 다른 데이터 처리 프레임워크를 사용하는 것이 더 효율적일 수 있습니다.**Tez는 모든 데이터 처리 작업을 하나의 JVM에서 처리하며, 중간 결과를 메모리에 저장하여 디스크 I/O를 최소화합니다. 이로 인해 복잡한 쿼리에서도 대기 시간을 크게 줄일 수 있습니다.**
 
-<img src="../assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_7.png"/>
+<img src="/assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_7.png"/>
 
 
 
@@ -103,7 +103,7 @@ Hive on MapReduce에서는 각 데이터 처리 스테이지 사이에 대기 �
 
 → Spark는 빠르고 범용적인 빅데이터 처리 엔진으로, 빅데이터 분석, 머신러닝, 실시간 스트리밍 처리 등 다양한 분야에서 활용
 
-<img src="../assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_8.png"/>
+<img src="/assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_8.png"/>
 
 **Spark와 Hive 정리**Spark는 배치 처리에서 MapReduce를 대체할 수 있는 것Hive는 배치 처리에서 MapReduce의 자바 언어 사용을 대체할 수 있는 것
 
@@ -111,7 +111,7 @@ Hive on MapReduce에서는 각 데이터 처리 스테이지 사이에 대기 �
 
 - 작은 데이터 반복 처리를 위한 쿼리 엔진을 개발했고, 대표적 쿼리 엔진이 Impala, Presto다.
 
-<img src="../assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_9.png"/>
+<img src="/assets/images/2024-06-13-bigdata-distributed-data-processing_images/DDP_9.png"/>
 
 **구조화 데이터 생성 → 대화식 쿼리 사용**
 
