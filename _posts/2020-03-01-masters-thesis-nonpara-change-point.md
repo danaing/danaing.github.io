@@ -10,7 +10,7 @@ categories: Statistics
 
 
 
-졸업 논문이 본심을 통과하면서 2년의 석사 과정을 마치게 되었습니다. 제가 연구한 주제 **'Change-point detection using Nonparametric methods'**에 대해 적어보려 합니다.
+졸업 논문이 본심을 통과하면서 2년의 석사 과정을 마치게 되었습니다. 석사 졸업 연구 주제인 **'Change-point detection using Nonparametric methods'**에 대해 적어보려 합니다.
 
 * **논문**  
 'Empirical Likelihood for Change-point Detection using Double Quantile' Danah Kim, Master thesis, Graduate School, Yonsei University, 2020  
@@ -28,28 +28,24 @@ categories: Statistics
 <img src="/assets/images/master-thesis/2020-03-01-masters-thesis-nonpara-change-point-fde636c9.png" width="80%">
 <center> <small> 나일 강의 연간 유량의 데이터로 점선이 change-point를 의미함.</small> </center> <br/>
 
-먼저 **Change-point**란 단어 뜻 그대로 변화가 생기는 지점, 즉 **변동점**으로 시간의 흐름에 따른 일련의 과정에서 **근본적인 프로세스의 통계적인 속성이 변한 지점**을 의미합니다.
+변경점(Change-point)은 시간의 흐름에 따라 일련의 과정에서 **통계적 특성이 근본적으로 변화하는 지점**을 의미합니다. 즉, 변화점은 프로세스의 통계적 속성이 변화하는 순간으로, 변동점이라고도 불립니다.
 
 <img src="/assets/images/master-thesis/2020-03-01-masters-thesis-nonpara-change-point-controlchart.svg" width="70%">
 <center> <small> sample의 평균값으로 그린 control chart 예시 (출처 1) </small> </center> <br/>
 
 
-금융이나 제조업, 역학 등의 다양한 분야와 많은 실제적인 상황에서 통계학자는 **change-point가 발생했는지, 그리고 발생했다면 어디에 발생했는지**와 같은 문제에 봉착하곤 했습니다. [통계적 공정 관리(Statistical Process Control)](https://en.wikipedia.org/wiki/Statistical_process_control)의 아버지로 알려진 [W. A. Shewhart](https://en.wikipedia.org/wiki/Walter_A._Shewhart)는 1931년에 처음으로 불량률 관리의 측면의 Control Chart를 개발하였고, E. S. Page는 1954년에 변화를 탐지하기 위해 [CUSUM chart](https://en.wikipedia.org/wiki/CUSUM)를 고안합니다. 이러한 고민과 해결의 시도는 오래전부터 있었으며 이후 많은 연구들이 진행되었습니다.
+제조, 금융, 역학 등 다양한 분야에서 변경점이 발생했는지, 그리고 발생했다면 그 위치가 어디인지 파악하는 문제는 중요한 연구 주제였습니다. [통계적 공정 관리(Statistical Process Control)](https://en.wikipedia.org/wiki/Statistical_process_control)의 창시자로 알려진 [W. A. Shewhart](https://en.wikipedia.org/wiki/Walter_A._Shewhart)는 1931년에 불량률 관리의 목적으로 관리도(Control Chart)를 처음 개발하였으며, E. S. Page는 1954년에 변화 탐지를 위해 [CUSUM chart](https://en.wikipedia.org/wiki/CUSUM)를 고안했습니다. 이러한 변경점 탐지 방법들은 이후 많은 연구의 초석이 되었습니다.
 
 <img src="/assets/images/master-thesis/2020-03-01-masters-thesis-nonpara-change-point-cusum.png" width="70%">
 <center> <small> Threshold와 CUSUM chart 예시 (출처 2) </small> </center> <br/>
 
-
+특히, 통계적 공정 관리(SPC)는 반도체 제조 공정과 같은 정밀한 제조업 분야에서 매우 중요합니다. 반도체 제조는 복잡한 단계로 이루어져 있으며, 각 단계에서 공정 조건이 엄격하게 관리되어야 합니다. 예를 들어, 반도체 공정에서 파라미터(온도, 압력, 화학적 농도 등)가 변화하면 제품 품질에 영향을 미칠 수 있습니다. 변경점 탐지는 이상 징후를 발견하고 품질 문제를 예방하는 데 중요한 역할을 합니다.
 
 ### 1.2. Change-point Problem
 
-Change-point Probelm에 대한 정의는 다양합니다만, 여기서 우리는 Change-point problem에 대해 이렇게 정의하겠습니다.
+변경점 문제에 대한 정의는 다양하지만, 본 연구에서는 다음과 같이 정의합니다.
 
-Consider a sequence of
-observations $x_{1}, x_{2}, \ldots, x_{n}$ drawn from independent random variables $X_{1}, X_{2}, \ldots, X_{n}$.  
-Multiple $m$ change-points $\tau_{1}, \tau_{2}, \ldots , \tau_{m}$ exist in the data. Then there are $(m+1)$ segments.  
-The distributions of the sequence can be written as
-
+일련의 관측값 $x_{1}, x_{2}, \ldots, x_{n}$이 독립적인 확률 변수 $X_{1}, X_{2}, \ldots, X_{n}$로부터 추출된다고 가정합니다. 데이터에는 여러 개의 변경점 $\tau_{1}, \tau_{2}, \ldots , \tau_{m}$이 존재하며, 그로 인해 $(m+1)$개의 구간이 형성됩니다. 이때 일련의 관측값의 분포는 다음과 같이 표현됩니다.
 $$
 X_{i} \sim
 \begin{cases}
@@ -60,74 +56,72 @@ X_{i} \sim
 \end{cases}
 $$
 
-
-즉 Change-point문제는 Change-point $\tau$가 $\tau_{1}$ 부터 $\tau_{m}$까지 $m$개 존재할 때, $F_{1}$부터 $F_{m+1}$까지 $m+1$개의 distribution으로 나눠진다는 가정 하에 시작합니다. 이 때 distribution의 structure 변화는 주로 **평균**이나 **분산**의 변화 혹은 **분포**의 자체의 변화로 볼 수 있습니다. 그리고 이 Change-point problem에서 **$\tau$의 적절한 위치와 개수를 detect**해야 합니다.
+즉, 변경점 문제는 변경점 $\tau$가 $\tau_{1}$부터 $\tau_{m}$까지 $m$개 존재할 때, $F_{1}$부터 $F_{m+1}$까지 $m+1$개의 분포로 나눠진다는 가정하에 시작합니다. 이러한 분포 구조의 변화는 주로 **평균**, **분산**, 또는 **분포 자체**의 변화로 나타납니다. 따라서 변경점 문제에서 **$\tau$의 위치와 개수를 정확하게 탐지**하는 것이 핵심입니다.
 
 ### 1.3. Change-point Model
 
-Change-point problem에서 **$\tau$** **의 적절한 위치와 개수를 detect하기 위한 통계적 모델**을 정의하겠습니다.  먼저 $\tau$에서 1개의 변화가 있다고 가정합니다. 이렇게 single change-point를 구하고, 나뉘어진 지점을 기준으로 앞 뒤로 **binary한 segmentation**을 연속적이고 반복적으로 수행하면 모든 change-point를 찾을 수 있습니다. 이를 표현하면 아래와 같이 single change-point를 detect하는 과정으로 단순화할 수 있습니다.
+변경점 문제를 해결하기 위해 **$\tau$의 적절한 위치와 개수를 탐지하기 위한 통계적 모델**을 정의합니다. 먼저 $\tau$에서 단일 변화가 존재한다고 가정합니다. 이렇게 단일 변경점을 탐지한 후, 해당 지점을 기준으로 앞뒤로 **이진 세분화(binary segmentation)**를 반복적으로 수행하면 모든 변경점을 찾을 수 있습니다. 이를 통해 변경점 탐지 문제는 단일 변경점을 탐지하는 문제로 단순화할 수 있습니다.
 
-Consider independent random variables $X_{1} \sim G_{1},\ldots,X_{n}\sim G_{n}$.  
-Assume that there is at most one change $\tau$ in the sequence of distributions above. We want to test the null hypothesis of no change
+독립적인 확률 변수 $X_{1} \sim G_{1}, \ldots, X_{n} \sim G_{n}$을 고려합니다. 위의 분포에서 최대 하나의 변경점 $\tau$가 존재한다고 가정합니다. 우리는 변화가 없다는 귀무 가설을 검정하고자 합니다.
 
 $$
 \label{eq1}\tag{1}
 \mathbf{H_{0}} : G_{1} = G_{2} = \ldots = G_{n} = F,
 $$
 
-against the following alternative of one change
+이에 대해 단일 변경점이 존재한다는 대립 가설은 다음과 같습니다.
 
 $$
 \label{eq2}\tag{2}
 \mathbf{H_{a}} : F_{1} = G_{1} = G_{2} = \ldots = G_{\tau} \ne G_{\tau+1} = \ldots = G_{n} = F_{2}.
 $$
 
-where $1 \le \tau < n$ and neither F nor G is degenerate.
-Using binary segmentation, it suffices to test and estimate the position of a single change point at each stage sequentially.
+여기서 $1 \le \tau < n$이며, $F$와 $G$는 어느 것도 퇴화하지 않는다고 가정합니다. 이진 세분화를 통해 각 단계에서 순차적으로 단일 변경점의 위치를 추정하고 검정하는 것이 적절합니다.
 
 
 ## 2. Proposed Methodology
 
-### 2.1. Methods on change-point analysis
+### 2.1. Methods on Change-point Analysis
 
 위에서 설명한 Model에서 change-point를 탐지하는 방법을 크게 통계적으로 **모수적 방법**과 **비모수적 방법**으로 나눌 수 있습니다. 모수적 방법 중 연구가 가장 많이된 분야는 정규분포에서 평균의 변화에 대한 탐지이며 또한 분산의 변화에 대해서도 연구가 되고 있습니다.  
-그러나 모수적 방법에는 **(1)** <u>모수적 가정은 때때로 현실에서 만족되지 않으며</u> **(2)** <u>아웃라이어에 민감하고,</u> **(3)** <u>극단에 위치한 값은 분포에 따라 크게 다르다</u>는 한계점이 존재합니다.
+그러나 모수적 방법은 **(1)** 모수적 가정은 때때로 현실에서 만족되지 않으며, 이는 실제 데이터가 가정된 분포에서 벗어나는 경우 분석 결과의 신뢰도가 크게 떨어질 수 있다는 것을 의미합니다. **(2)** 이상치(outlier)에 민감하며, 특히 이상치(outlier)는 모형의 모수 추정에 큰 영향을 미쳐 분석의 정확성을 저해할 수 있습니다. 이는 이상치(outlier)가 평균이나 분산과 같은 모수를 왜곡시켜, 결과적으로 분석의 신뢰성을 떨어뜨리기 때문입니다. 예를 들어, 평균의 변화 탐지 시 이상치(outlier)가 존재하면 실제 변화와 무관하게 평균이 크게 변하게 되어 잘못된 결론을 도출할 수 있습니다. **(3)** 극단에 위치한 값은 분포에 따라 크게 다르다는 한계점이 존재합니다. 이는 극단값이 데이터의 특성에 큰 영향을 미칠 수 있으며, 가정된 분포 구조가 왜곡될 수 있음을 의미합니다.
 
-그에 비해 비모수적 방법은 가정이 훨씬 적으며 다양한 상황에 더 적절하게 사용할 수 있습니다. 비모수적 방법으로도 change-point에 대해 많은 연구가 되었으며, 2007년의 Empirical likelihood ratio를 이용한 change-point문제에 대한 논문[^1]과 2017년에 제안된 Quantile empirical likelihood을 방법[^2]을 발전시켜, 이번 논문은 양 방향으로의 Double quantile empirical likelihood를 제안합니다.
+반면, 비모수적 방법은 가정이 훨씬 적고 다양한 상황에 더 적합하게 적용될 수 있습니다. 이는 데이터가 특정한 분포를 따른다고 가정하지 않기 때문에, 분포에 대한 사전 지식이 없거나 데이터의 분포가 복잡한 경우에도 유연하게 적용될 수 있다는 장점이 있습니다. 또한 비모수적 방법은 아웃라이어나 극단값의 영향을 덜 받으며, 데이터 자체에 기반한 추론을 수행하기 때문에 현실적인 상황에서 더 강건한 결과를 제공할 수 있습니다. 
+
+비모수적 방법으로도 변경점에 대한 많은 연구가 이루어졌으며, 2007년에는 경험적 가능도 비율(Empirical Likelihood Ratio)을 이용한 변경점 문제에 대한 연구와 2017년에 제안된 분위수 경험적 가능도(Quantile Empirical Likelihood) 방법을 발전시켜, 이번 연구에서는 양 방향으로의 이중 분위 경험적 가능도(Double quantile empirical likelihood)를 제안합니다.
 
 
-### 2.2. Empirical likelihood
+### 2.2. Empirical Likelihood
 
-이 논문에서 이용한 비모수적 방법론은 **Empirical likelihood**입니다. [Art B. Owen](https://statistics.stanford.edu/people/art-b-owen)이 1988년에 비모수적 방법의 empirical likelihood를 처음 제시하였는데, 주요 아이디어는 각각의 관측치에 unknown probability mass를 주는 것입니다.
+본 연구에서 사용한 비모수적 방법론은 **경험적 가능도(Empirical Likelihood)**입니다. [Art B. Owen](https://statistics.stanford.edu/people/art-b-owen)은 1988년에 비모수적 방법으로 경험적 가능도를 처음 제시했으며, 주요 개념은 각각의 관측치에 미지의 확률 질량(unknown probability mass)을 부여하는 것 입니다.
 
-Assume that independently and identically distributed observation $x_{1}, ... ,x_{n}$ are from an unknown population distribution $F$. Let $p_{i} = P(X=x_{i})$. Empirical likelihood function of $ \{ p_{i} \}_{i=1}^{n}$ is defined as
+독립적이고 동일하게 분포된 관측값 $x_{1}, \ldots, x_{n}$이 알려지지 않은 모집단 분포 $F$에서 추출되었다고 가정합니다. 이때 $p_{i} = P(X=x_{i})$라고 정의하면, ${ p_{i} }_{i=1}^{n}$의 경험적 가능도 함수는 다음과 같습니다.
 
 $$
 L(F) = \prod_{i=1}^{n} p_{i},
 $$
 
-where $p_{i}$ satisfy the constraints $p_{i} \ge 0$ and $\sum_{i=1}^{n} p_{i}=1$
+여기서 $p_{i}$는 $p_{i} \ge 0$ 및 $\sum_{i=1}^{n} p_{i}=1$의 제약 조건(constraints)을 만족합니다.
 
-그러면 $L(F)$는 $p_{i}=1/n$ 일때 가장 최대가 되며, Full model에서 $n^{-n}$를 최대값으로 가집니다.
+따라서 $L(F)$는 $p_{i}=1/n$일 때 최대가 되며, 전체 모델(Full Model)에서 $n^{-n}$이 최대값을 갖습니다.
 
-When a population parameter $\theta$ identified by $E[m(X;\theta)]=0$ is of interest, the empirical likelihood maximum when $\theta$ has the true value $\theta_{0}$ is obtained subject to the additional constraint
+모집단 모수 $\theta$가 $E[m(X;\theta)]=0$으로 정의될 때, $\theta$가 참값 $ \theta_{0}$을 가질 경우 추가 제약 조건을 만족하면서 경험적 가능도를 최대화할 수 있습니다.
 
 $$
 \sum_{i=1}^{n} p_{i} m(x_{i},\theta_{0}) = 0.
 $$
 
-관심있는 모수($\theta$)에 대한 제약식을 추가하여 likelihood를 최대화하는 각 observation에 대한 probability를 추정할 수 있습니다. 각각의 제약식을 라그랑주 승수법(Lagrange multiplier)으로 풀 수 있습니다.
+이와 같은 제약식을 추가하여 각 관측치에 대한 확률을 최대화할 수 있습니다. 이러한 최적화 문제는 라그랑주 승수법(Lagrange multiplier)을 사용하여 풀 수 있습니다.
 
-To find $\{p_{i}\}_{i=1}^{n}$ under the restrictions, solve the Laglange Multiplier
+제약 조건 하에서 ${p_{i}}_{i=1}^{n}$을 찾기 위해 라그랑주 승수법을 적용하면 다음과 같은 식을 얻을 수 있습니다.
 
 $$
 \sum_{i=1}^{n} \log p_{i} + \lambda_{0} ( \sum_{i=1}^{n} p_{i} - 1) +  \lambda_{1} (\sum_{i=1}^{n} p_{i} m(x_{i},\theta_{0})).
 $$
 
-따라서 아래처럼 Empirical Likelihood Ratio(ELR)를 구할 수 있으며, 이것은 근사적으로 Chi-squared distribution을 따른다고 알려져있습니다. Empirical Likelihood 방법은 Lagrange Multiplier Method를 사용하여 다른 제약식으로 확장하여 probability를 추정할 수 있습니다.
+따라서 경험적 가능도 비율(ELR)은 다음과 같이 정의됩니다. 이는 근사적으로 카이제곱 분포(Chi-squared distribution)를 따른다고 알려져 있습니다. 경험적 가능도 방법은 라그랑주 승수법을 사용하여 다른 제약 조건을 추가적으로 고려할 수 있습니다.
 
-The Empirical Likelihood Ratio(ELR) statistic to test $\theta = \theta_{0}$ is given by
-
+$\theta = \theta_{0}$를 검정하기 위한 경험적 가능도 비율 통계량(Empirical Likelihood Ratio(ELR) statistic)은 다음과 같습니다.
 $$
 \mathbf{R(\theta_{0})} = \frac{L(F)}{L(F_{n})} = \max \left ( \prod_{i=1}^{n} np_{i} | \sum_{i=1}^{n} p_{i}m(x_{i}, \theta_{0})=0, p_{i} \ge 0, \sum_{i=1}^{n} p_{i} =1 \right )
 $$
@@ -135,47 +129,45 @@ $$
 Under the null model $\theta = \theta_{0}$ with mild regular conditions, $-2 \log \mathbf{R(\theta_{0})} \to \chi_{r}^{2}$ in distribution as $n \to \infty$, where $r$ is dimension of $m(x, \theta)$ (Owen, 1988). The empirical likelihood method can be extended to other constraints using Lagrange multiplier method to find $\\{p_{i}\\}_{i=1}^{n}$.
 
 
-### 2.3. Empirical Likelihood for Two groups comparison
+### 2.3. Empirical Likelihood for Two Groups Comparison
 
-위 검정 방법을 두 개의 그룹 비교 검정(Two groups comparison test)으로 확장할 수 있습니다. $F_{1}$과 $F_{2}$의 probabiity를 최대로하는 empirical likelihood를 정의하면, 아래와 같이 two sample test로 change-point를 binary하게 2개의 분포로 나누는 test와 동일하게 됩니다.
+위의 검정 방법을 두 그룹 비교 검정(Two Groups Comparison Test)으로 확장할 수 있습니다. $F_{1}$과 $F_{2}$의 확률을 최대화하는 경험적 가능도(Empirical Likelihood)를 정의하면, 이표본 검정(Two-sample Test)으로 변경점을 이진적으로 두 개의 분포로 나누는 검정과 동일하게 됩니다.
 
 
-Two samples: $X_{1}, X_{2}, \ldots, X_{n} \sim F_{1}$ and $Y_{1}, Y_{2}, \ldots, Y_{m} \sim F_{2}$ and let $p_{i} = P(X=x_{i})$ and $q_{j} = P(Y=y_{j})$.
-Empirical likelihood function of $p_{i}$ and $q_{j}$ is defined as
+두 샘플: $X_{1}, X_{2}, \ldots, X_{n} \sim F_{1}$ 그리고 $Y_{1}, Y_{2}, \ldots, Y_{m} \sim F_{2}$이며, $p_{i} = P(X=x_{i})$, $q_{j} = P(Y=y_{j})$로 정의합니다. $p_{i}$와 $q_{j}$의 경험적 가능도 함수는 다음과 같이 정의됩니다.
 
 $$
 L(F) = \prod_{i=1}^{n} p_{i}\prod_{j=1}^{m} q_{j},
 $$
 
-where $p_{i}$ and $q_{j}$ satisfy the constraints $p_{i} \ge 0, q_{j} \ge 0$ and $\sum_{i=1}^{n} p_{i}=1$, $\sum_{j=1}^{m} q_{j}=1$
+where $p_{i}$ and $q_{j}$ satisfy the constraints $p_{i} \ge 0, q_{j} \ge 0$ and $\sum_{i=1}^{n} p_{i}=1$, $\sum_{j=1}^{m} q_{j}=1$.
 
-This hypothesis (\ref{eq1}) and (\ref{eq2}) is equivalent to
+식 (\ref{eq1}), 식 (\ref{eq2})와 동등한 검정입니다.
 
 $$
 \mathbf{H_{0}} : F_{1} = F_{2},
 $$
 
-against
+이에 대한 대립 가설은 다음과 같습니다.
 
 $$
 \mathbf{H_{a}} : F_{1} \ne F_{2}.
 $$
 
-Thus, the hypothesis becomes two sample test.
+따라서 이 가설은 이표본 검정 문제(Two-sample Test)로 귀결됩니다.
 
 
 ### 2.4. Quantile Llikelihood Ratio for Two Sample
 
-Zhou, Y., Fu, L., and Zhang, B.(2017) 논문에 따르면 여기에 Quantile을 이용한 constraints를 empirical likelihood에 추가하여 probability를 추정할 수 있습니다.
+Zhou, Y., Fu, L., and Zhang, B.(2017) 논문에 따르면 분위(quantile)를 이용한 제약 조건(constraints)을 경험적 가능도(empirical likelihood)에 추가하여 확률을 추정할 수 있습니다.
 
-Under the null hypothesis, for any given $x$, we have $F_{1}(x)=F_{2}(x)=F(x)$. Let $p=F(\xi_{p})$; hence, $\xi_{p}$ is the $p$ quantile of $F$ and $\xi_{p}$ needs to satisfy
+귀무 가설 하에서, 주어진 $x$에 대해 $F_{1}(x) = F_{2}(x) = F(x)$가 성립합니다. $p=F(\xi_{p})$라고 할 때, $\xi_{p}$는 $F$의 $p$ 분위이며, $\xi_{p}$는 다음 조건을 만족해야 합니다.
 
 $$
 \label{eq3}\tag{3}
     E[I(X_{i} \le \xi_{p})-p]=0, \quad \text{for } 1 \le i \le n+m,
 $$
-We can construct the following quantile empirical likelihood test statistic under restriction,
-
+이를 이용해 다음과 같은 제약 조건 하에서 분위 경험적 가능도 검정 통계량(quantile empirical likelihood test statistic)을 구성할 수 있습니다.
 $$
 \mathbf{R(\xi_{p})} = \max \left ( \prod_{i=1}^{n} np_{i} \prod_{j=1}^{m} mq_{j} | \sum_{i=1}^{n} p_{i} I(X_{i} \le \xi_{p}) ) = p,  \right .
 $$
@@ -186,11 +178,10 @@ $$
 $$
 
 
-이를 확장시켜 제가 제안하는 방법이 **Double quantile likelihood**입니다. 앞서보았던 empirical likelihood에 left side와 right side의 quantile을 constraints로 사용하여 추정하는 방법입니다. 2개의 quantile을 사용하여 Empirical likelihood를 maximize하는 것입니다.
+이를 확장하여 제안하는 방법이 **이중 분위 가능도(Double quantile likelihood)**입니다. 이는 앞서 언급한 경험적 가능도(empirical likelihood)에서 좌측과 우측의 분위(quantile)를 제약 조건(constraints)으로 사용하여 추정하는 방법입니다. 두 개의 분위을 사용하여 경험적 가능도를 최대화합니다.
 
-Double quantile likelihood expand (\ref{eq3}) to $\textbf{Double quantile likelihood}$ for the both extreme side.
-Let $p=F(\xi_{p})$ and $1-q=F(\xi_{1-q})$ ; hence, $\xi_{p}$ is the $p$ quantile of $F$ and $\xi_{1-q}$ is the $1-q$ quantile of $F$. This satisfies
-
+식 (\ref{eq3})를 양 극단에 모두에 대해 확장한 $\textbf{Double quantile likelihood}$로 정의됩니다.
+$p=F(\xi_{p})$와 $1-q=F(\xi_{1-q})$라 할 때, $\xi_{p}$는 $F$의 $p$ 분위이고, $\xi_{1-q}$는 $F$의 $1-q$ 분위에 해당하는 값입니다. 이는 다음을 만족합니다.
 $$
 \label{eq4}\tag{4}
 E[I(X_{i} \le \xi_{p})-p]=0, \quad E[I(X_{i} \ge \xi_{1-q})-q)]=0
@@ -198,7 +189,7 @@ $$
 
 where $0 < p < 1-q < 0$ for $1 \le i \le n+m$.
 
-Using (\ref{eq4}), double quantile empirical likelihood test statistic under restriction is
+식 (\ref{eq4})를 이용해 제약 조건 하에서 이중 분위 경험적 가능도 검정 통계량(double quantile empirical likelihood test statistic)은 다음과 같이 정의됩니다.
 
 $$
 \label{eq5}\tag{5}
@@ -213,10 +204,10 @@ $$
 \left . \sum_{j=1}^{m} q_{j} I(Y_{j} \le \xi_{1-q}) )=1-q, p_{i}, q_{j} \ge 0, \sum_{i=1}^{n} p_{i} = \sum_{j=1}^{m} q_{j} =1  \right )
 $$
 
-라그랑주 승수법(Lagrange multiplier)을 통해 유니크한 람다를 구하고 이로 확률을 추정합니다. 따라서 유도되는 DLR는 위와 같습니다. 이때 이 test statistic을 최대화시키는 사이p와 사이1-q를 택하고, 큰 test statistic Dn은 가장 가능성이 큰 적어도 하나의 change-point가 있다는 뜻으로 귀무가설의 기각을 의미합니다. 증명은 Appendix.A에 수록되어 있습니다.
+라그랑주 승수법(Lagrange multiplier)을 통해 유일한 라그랑주 승수($\lambda$)를 구하고 이를 통해 확률을 추정합니다. 따라서 유도된 이중 분위 가능도 비율(DLR)는 위와 같습니다. 이때 이 검정 통계량(test statistic)을 최대화시키는 $\xi_{p}$와 $\xi_{1-q}$를 선택하며, 큰 검정 통계량 $D_{n}$은 적어도 하나의 변경점이 존재할 가능성이 크다는 것을 의미하고, 귀무 가설의 기각을 의미합니다. 증명은 Appendix.A에 수록되어 있습니다.
 
 
-Using Lagrange multipliers to solve (\ref{eq5}), we can get following unique $\lambda's$ and $p_{i}$ ,  $q_{j}$. (Proof in Appendix.A) This leads to double quantile likelihood ratio(DLR) test statistic.
+라그랑주 승수법을 사용하여 식 (\ref{eq5})를 풀면, 다음과 같은 유일한 $\lambda$와 $p_{i}$, $q_{j}$를 얻을 수 있습니다(증명은 Appendix.A에 포함). 이는 이중 분위 가능도 비율(DLR) 검정 통계량으로 이어집니다.
 
 $$
 \begin{gathered}
@@ -228,61 +219,64 @@ $$
 where $\sum_{i=1}^{n} I(X_{i} \le \xi_{p}) = n_{1}$, $\sum_{i=1}^{n}I( X_{i} > \xi_{1-q}) = n_{2}$ and $\sum_{j=1}^{m} I(Y_{j} \le \xi_{p}) = m_{1}$, $\sum_{j=1}^{m}I( Y_{j} > \xi_{1-q}) = m_{2}$
 
 $$
-\therefore D_{n} = \sup_{\xi_{p}<\xi_{1-q}} \{ -2\log \mathbf{R(\xi_{p}, \xi_{1-q})} \}  
+\therefore D_{n} = \sup_{\xi_{p}<\xi_{1-q}} \{ -2\log \mathbf{R(\xi_{p}, \xi_{1-q})} \}
 $$
 
-Large values of $D_{n}$ indicate that there is at least one change-point.
+큰 $D_{n}$ 값은 적어도 하나의 변경점이 존재함을 나타냅니다.
 
 ## 3. Simulations
 
-### 3.1. Algorithm for change-point detection
+### 3.1. Algorithm for Change-point Detection
 
-소개해드린 DLR로 change-point를 detection하는 알고리즘에 대해 말씀드리겠습니다. Change-point $\tau$는 two sample test인 DLR를 통해 추정이 가능합니다. 이때 F1과 F2의 sample size가 작다면 EL의 estimator인 람다는 존재하지 않을 수도 있으므로, $n$과 $m$의 샘플사이즈는 2007는 Zou의 논문에서 제시한 trimming 방법을 사용하여 조정된 $D_{n}^{\*}$ 를 구하고, 계산된 $D_{n}^{\*}$ 를 가장 maximize시키는 $\tau$를  $\tau$으로 추정합니다.
+본 절에서는 제안된 DLR을 이용한 변경점 탐지 알고리즘을 설명합니다. 변경점 $\tau$는 이표본 검정(two-sample test)인 DLR을 통해 추정할 수 있습니다.이때 $F_{1}$과 $F_{2}$의 샘플 크기가 너무 작을 경우, 경험적 가능도(Empirical Likelihood, EL)의 추정치인 라그랑주 승수($\lambda$)가 존재하지 않을 수 있습니다. 따라서 2007년 Zou의 논문에서 제시된 trimming 방법을 사용하여 샘플 크기 $n$과 $m$을 조정하고, 조정된 통계량 $D_{n}^{\*}$을 이용해 변경점을 추정합니다. 이때 $D_{n}^{\*}$를 가장 최대화하는 $\tau$를 변경점으로 추정합니다.
 
-Change-point detection problem is to detect $\tau$ where
+변경점 탐지 문제는 다음과 같은 $\tau$를 탐지하는 문제로 정의됩니다.
 
 $$
 F_{1} = G_{1} = G_{2} = \ldots = G_{\tau} \ne G_{\tau+1} = \ldots = G_{n} = F_{2}
 $$
 
-Two sample test: $X_{1}, \ldots, X_{n} \sim F_{1}$ and $Y_{1}, \ldots, Y_{m} \sim F_{2}$. When $n$ or $m$ is too small, the empirical likelihood estimators of $\lambda's$ may not exist. Therefore, use a trimmed statistic (Zou, C. (2007))
+두 샘플 검정에서는 $X_{1}, \ldots, X_{n} \sim F_{1}$ 그리고 $Y_{1}, \ldots, Y_{m} \sim F_{2}$라고 가정합니다. 만약 $n$ 또는 $m$이 너무 작다면, 경험적 가능도 추정치인 라그랑주 승수가 존재하지 않을 수 있습니다. 이러한 경우에는 trimming된 통계량(Zou, C. 2007)을 사용합니다.
 
 $$
 D_{n}^{*} = \sup_{ c(n+m)^{-1/9}<\xi_{p}<\xi_{1-q}<1-c(n+m)^{-1/9} } \{ -2\log \mathbf{R(\xi_{p}, \xi_{1-q})} \}
 $$
 
 where $c$ is a positive constant.
-The location $\tau$ can be estimated by
 
+변경점 $\tau$ 는 다음과 같이 추정할 수 있습니다.
 $$
 \hat\tau = \arg_{\tau} \max \{ D_{n}^{*} \}
 $$
 
 ### 3.2. Simulation
 
-다음은 시뮬레이션입니다. Single change-point에 대해 시뮬레이션 수행하였습니다. 평균의 차이를 델타로 고정시키고 두 분포에서 observation값을 추출합니다. 그리고 change-point의 위치는 25%, 50%, 75%, 95%로 4개의 자리에 위치시켰습니다. 컴퓨팅을 고려하여 사이 $p$와 사이 $1-q$의 rank는 전체 샘플사이즈의 절반이상의 차이가 나도록 설정하였습니다. $D_{n}^{\*}$를 가장 크게 하는 $\tau$를 change-point로 택하는 시뮬레이션을 100번 수행하였습니다.
+다음으로 단일 변경점(Single change-point)에 대한 시뮬레이션 결과를 제시합니다. 평균의 차이를 델타($\delta$)로 고정하고, 두 분포로부터 관측값(observation)을 추출합니다. 그리고 변경점의 위치는 25%, 50%, 75%, 95%로 네 가지로 설정하였습니다. 컴퓨팅 효율을 고려하여 $\xi_{p}$와 $\xi_{1-q}$ 사이의 순위(rank)는 전체 샘플 크기의 절반 이상 차이가 나도록 설정하였습니다. $D_{n}^{\*}$를 최대화하는 $\tau$를 변경점으로 선택하여 시뮬레이션을 100번 수행하였습니다.
 
-1. Assume that $X_{1}, ... ,X_{n}$ from $F_{1}$, and $Y_{1}, ... ,Y_{m}$ from $F_{2}$ with different distributions by setting $\delta$ satisfying $\delta=E_{F_{1}}(X)-E_{F_{2}}(X)$
-1. Change location $m$ takes 25%, 50%, 75%, and 95% quantiles of the number of samples.
-1. $\xi_{p}$ and $\xi_{1-q}$ are the value of $x's$ satisfying the rank($\xi_{p}$)-rank($\xi_{1-q}$) $\ge 0.5(n+m)$ for computation.
-1. Calculate $D_{n}^{\*}$ and detect change-point $\hat\tau$.
-1. For each case, 100 simulations are carried out.
-1. Calculate the accuracy rate.
-
+1. $X_{1}, \ldots, X_{n}$은 분포 $F_{1}$에서, $Y_{1}, \ldots, Y_{m}$은 분포 $F_{2}$에서 나오는 것으로 가정하고, $\delta$가 $\delta = E_{F_{1}}(X) - E_{F_{2}}(X)$을 만족하도록 설정합니다.
+1. 변경점의 위치는 샘플 개수의 25%, 50%, 75%, 95% 분위에 해당합니다.
+1. $\xi_{p}$와 $\xi_{1-q}$는 컴퓨팅을 위해 rank($\xi_{p}$) - rank($\xi_{1-q}$) $\ge 0.5(n+m)$을 만족하는 값입니다.
+1. $D_{n}^{*}$를 계산하고 변경점 $\hat{\tau}$를 추정합니다.
+1. 각 경우에 대해 100번의 시뮬레이션을 수행합니다.
+1. 정확도(accuracy rate)를 계산합니다.
 
 <img src="/assets/images/master-thesis/2020-03-01-masters-thesis-nonpara-change-point-d2fd887e.png" width="70%">
 
 <img src="/assets/images/master-thesis/2020-03-01-masters-thesis-nonpara-change-point-143a683c.png" width="70%">
 <center> <small> Simulation Results </small> </center> <br/>
 
-시뮬레이션 결과 DLR이 전반적으로 다양한 분포와 여러 위치에 대해 전반적으로 괜찮은 성능을 보이는 것을 확인할 수 있습니다.
+시뮬레이션 결과, DLR이 다양한 분포와 여러 위치에 대해 전반적으로 우수한 성능을 보임을 확인할 수 있었습니다.
 
 <img src="/assets/images/master-thesis/2020-03-01-masters-thesis-nonpara-change-point-12890a3a.png" width="100%">
 <center> <small> DLR result: $\tau$=28, change-point=1898. </small> </center> <br/>
 
-Change-point 분석에 널리 연구된 Nile 데이터에 실제 적용한 결과입니다. 왼쪽 plot은 DLR의 -2LLR입니다. max값인 28이 $\tau$로 추정되었습니다. 이는 오른쪽의 plot을 보았을 때, 1899년까지와 그 이후의 유량은 눈으로도 차이가 보이며 change-point를 잘 detect하고 있습니다. (논문에 따르면 1898년에 기후 변화와 nile강 주변 aswan dam의 개입으로 달라진것으로 보고 있습니다.) 추가적으로 Quantile이 1개일때와 2개일때의 Empirical CDF와 p-value에 대한 비교는 아래 첨부자료 Appendix.B를 참고하여 주세요.
+변경점 분석에 널리 연구된 Nile 데이터를 대상으로 DLR을 적용한 결과입니다. 왼쪽 plot은 DLR의 -2LLR입니다. max값인 28이 $\tau$로 추정되었습니다. 이는 오른쪽의 plot을 보았을 때, 1899년까지와 그 이후의 유량은 눈으로도 차이가 보이며 변경점을 잘 탐지했음을 확인할 수 있습니다. (논문에 따르면 1898년에 기후 변화와 Nile강 주변 Aswan 댐의 개입이 1898년에 발생했음을 언급합니다.) 추가적으로 Quantile이 1개일 때와 2개일 때의 Empirical CDF와 p-value에 대한 비교는 아래 첨부자료 Appendix.B에서 확인할 수 있습니다.
 
-본 연구는 예를 들어 제조업 공정, 기상 측정, 통화, 전력 등의 수요가 이상이 발생되어 후에 분포가 달라진다면 그 change-point를 찾을 수 있고 통계적 관점에서 해석이 가능합니다. 두 분포의 다름을 통계적 검정 방법으로 접근하고 이를 change-point로 바라보는 것에 의의가 있으며, 추후 알고리즘에 적용하여 연구 및 활용할 수 있다고 생각합니다. 긴글 읽어주셔서 감사합니다.
+## 4. Outro
+
+본 연구는 제조업 공정, 기상 측정, 통화, 전력 수요 등에서 이상이 발생하여 이후 분포가 달라진 경우 그 변경점을 탐지하고 통계적 관점에서 이를 해석할 수 있는 가능성을 제시합니다. 제안된 방법은 실시간으로 공정 데이터를 모니터링하여 즉각적으로 대응하는 것은 아니지만, 정기적인 공정 점검과 사후 분석에 유용하게 활용될 수 있습니다. 예를 들어, 일정 기간 동안 축적된 공정 데이터를 분석하여 과거에 발생한 변경점을 탐지함으로써, 공정의 안정성과 품질에 영향을 미친 요인을 파악할 수 있습니다. 이러한 사후 분석을 통해 공정 개선의 방향을 설정하고, 공정 조건의 변경이나 장비의 유지 보수 시점을 결정하는 데 도움을 줄 수 있습니다.
+
+제조업에서도 이와 유사하게 이 방법을 활용할 수 있습니다. 제조 공정에서는 생산 라인에서 발생하는 다양한 변수(예: 온도, 압력, 속도 등)의 변화가 제품 품질에 영향을 줄 수 있습니다. DLR 기반의 변경점 탐지 방법을 통해 과거 데이터를 분석함으로써, 생산 라인에서 발생한 중요한 변경 지점을 식별하고 품질 문제의 원인을 찾아낼 수 있습니다. 이를 통해 제조 공정을 최적화하고, 불량률을 줄이며, 공정의 일관성을 높일 수 있습니다. 또한, 정기적인 분석을 통해 생산 과정에서의 비정상적인 변화를 조기에 발견하고, 이를 바탕으로 공정 개선 및 유지 보수 전략을 수립하는 데 도움을 줄 수 있습니다.
 
 
 ## References
