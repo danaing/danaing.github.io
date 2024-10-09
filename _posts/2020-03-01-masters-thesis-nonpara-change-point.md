@@ -28,18 +28,18 @@ categories: Statistics
 <img src="/assets/images/master-thesis/2020-03-01-masters-thesis-nonpara-change-point-fde636c9.png" width="80%">
 <center> <small> 나일 강의 연간 유량의 데이터. 점선이 change-point를 의미함.</small> </center> <br/>
 
-변경점(Change-point)은 시간의 흐름에 따른 일련의 과정에서 **통계적 특성이 근본적으로 변화하는 지점**을 의미합니다. 즉, 변경점은 프로세스의 통계적 속성이 변화하는 순간으로, 변동점이라고도 불립니다.
+**변경점(Change-point)**은 시간의 흐름에 따른 일련의 과정에서 **통계적 특성이 근본적으로 변화하는 지점**을 의미합니다. 프로세스의 통계적 속성이 변화하는 순간으로 변동점이라고도 불립니다.
 
 <img src="/assets/images/master-thesis/2020-03-01-masters-thesis-nonpara-change-point-controlchart.svg" width="70%">
 <center> <small> sample의 평균값으로 그린 control chart 예시 (출처 1) </small> </center> <br/>
 
-제조, 금융, 역학 등 다양한 분야에서 변경점이 발생했는지, 그리고 발생했다면 그 위치가 어디인지 파악하는 문제는 중요한 연구 주제였습니다. [통계적 공정 관리(Statistical Process Control)](https://en.wikipedia.org/wiki/Statistical_process_control)의 창시자로 알려진 [W. A. Shewhart](https://en.wikipedia.org/wiki/Walter_A._Shewhart)는 1931년에 불량률 관리의 목적으로 관리도(Control Chart)를 처음 개발하였습니다. 관리도에서 UCL(Upper Control Limit)과 LCL(Lower Control Limit)은 프로세스 변동의 상한과 하한을 나타내는 중요한 기준선입니다. 만약 관측치가 UCL 또는 LCL을 초과하거나 미달하면 이는 프로세스에 통계적으로 유의미한 변화가 발생했음을 의미하며, 즉시 조치를 취해야 할 가능성이 있습니다.
+제조, 금융, 역학 등 다양한 분야에서 변경점이 발생했는지, 그리고 발생했다면 그 위치가 어디인지 파악하는 문제는 중요한 연구 주제였습니다. [통계적 공정 관리(Statistical Process Control)](https://en.wikipedia.org/wiki/Statistical_process_control)의 창시자로 알려진 [W. A. Shewhart](https://en.wikipedia.org/wiki/Walter_A._Shewhart)는 1931년에 불량률 관리의 목적으로 **관리도(Control Chart)**를 처음 개발하였습니다. 관리도에서 UCL(Upper Control Limit)과 LCL(Lower Control Limit)은 프로세스 변동의 상한과 하한을 나타내는 중요한 기준선입니다. 만약 관측치가 UCL 또는 LCL을 초과하거나 미달하면 이는 프로세스에 통계적으로 유의미한 변화가 발생했음을 의미하며, 즉시 조치를 취해야 할 가능성이 있습니다.
 
 <img src="/assets/images/master-thesis/2020-03-01-masters-thesis-nonpara-change-point-cusum.png" width="70%">
 
 <center> <small> Threshold와 CUSUM chart 예시 (출처 2) </small> </center> <br/>
 
-CUSUM 차트는 [누적합 제어도(Cumulative Sum Control Chart)](https://en.wikipedia.org/wiki/CUSUM)로, 1954년에 E.S. Page에 의해 개발되었습니다. 각 관측치가 누적되면서 목표값(예를들어 평균값)에서 벗어나는 정도를 추적합니다. 이것은 작은 변화가 반복되더라도 차트에서 점진적으로 누적되어 변화를 빨리 알아챌 수 있게 도와줍니다. 이러한 변경점 탐지 방법들은 이후 많은 연구의 초석이 되었습니다.
+**CUSUM 차트**는 [누적합 제어도(Cumulative Sum Control Chart)](https://en.wikipedia.org/wiki/CUSUM)로, 1954년에 E.S. Page에 의해 개발되었습니다. 각 관측치가 누적되면서 목표값(예를들어 평균값)에서 벗어나는 정도를 추적합니다. 이것은 작은 변화가 반복되더라도 차트에서 점진적으로 누적되어 변화를 빨리 알아챌 수 있게 도와줍니다. 이러한 변경점 탐지 방법들은 이후 많은 연구의 초석이 되었습니다.
 
 변화를 감지하는 방법에는 크게 **온라인(online)**과 **오프라인(offline)** 방식이 있으며, 각각의 방식은 데이터가 어떻게 수집되고 분석되는지에 따라 적용 방법이 다릅니다.
 
