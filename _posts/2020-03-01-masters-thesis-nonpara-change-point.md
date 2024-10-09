@@ -178,7 +178,11 @@ $$
 \label{eq3}\tag{3}
     E[I(X_{i} \le \xi_{p})-p]=0, \quad \text{for } 1 \le i \le n+m,
 $$
+
+
 이를 이용해 다음과 같은 제약 조건 하에서 분위 경험적 가능도 검정 통계량(quantile empirical likelihood test statistic)을 구성할 수 있습니다.
+
+
 $$
 \mathbf{R(\xi_{p})} = \max \left ( \prod_{i=1}^{n} np_{i} \prod_{j=1}^{m} mq_{j} | \sum_{i=1}^{n} p_{i} I(X_{i} \le \xi_{p}) ) = p,  \right .
 $$
