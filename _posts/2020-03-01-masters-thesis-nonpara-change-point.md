@@ -176,7 +176,7 @@ Zhou, Y., Fu, L., and Zhang, B.(2017) 논문에 따르면 분위(quantile)를 �
 
 $$
 \label{eq3}\tag{3}
-    E[I(X_{i} \le \xi_{p})-p]=0, \quad \text{for } 1 \le i \le n+m,
+    E[I(X_{i} \le \xi_{p})-p]=0, \quad \text{for } 1 \le i \le n+m
 $$
 
 
